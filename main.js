@@ -4,6 +4,7 @@ const ThoughtStreamPortfolio = () => {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [scrollY, setScrollY] = useState(0);
   const [revealedProject, setRevealedProject] = useState(null);
+  const [lightMode, setLightMode] = useState(false);
   const cursorRef = useRef(null);
 
   useEffect(() => {
@@ -32,7 +33,64 @@ const ThoughtStreamPortfolio = () => {
   const gradientX = (mousePos.x / window.innerWidth) * 100;
   const gradientY = (mousePos.y / window.innerHeight) * 100;
 
-  return React.createElement('div', { className: "relative w-full min-h-screen bg-black text-white overflow-x-hidden cursor-none" },
+  // Color scheme
+  const colors = lightMode ? {
+    bg: 'white',
+    text: 'black',
+    textSecondary: 'gray-600',
+    textTertiary: 'gray-400',
+    border: 'gray-300',
+    cursor: 'black',
+    gradient1: 'rgba(139, 92, 246, 0.2)',
+    gradient2: 'rgba(59, 130, 246, 0.15)',
+    gradient3: 'rgba(236, 72, 153, 0.15)',
+    gradientEnd: 'rgba(255, 255, 255, 1)',
+    sectionBg: 'from-white to-purple-50',
+    footerBg: 'from-purple-50 to-white'
+  } : {
+    bg: 'black',
+    text: 'white',
+    textSecondary: 'gray-400',
+    textTertiary: 'gray-600',
+    border: 'gray-800',
+    cursor: 'white',
+    gradient1: 'rgba(139, 92, 246, 0.3)',
+    gradient2: 'rgba(59, 130, 246, 0.2)',
+    gradient3: 'rgba(236, 72, 153, 0.2)',
+    gradientEnd: 'rgba(0, 0, 0, 1)',
+    sectionBg: 'from-black to-purple-950',
+    footerBg: 'from-purple-950 to-black'
+  };
+
+  return React.createElement('div', { className: `relative w-full min-h-screen bg-${colors.bg} text-${colors.text} overflow-x-hidden cursor-none` },
+    // Theme Toggle Button
+    React.createElement('div', {
+      className: "fixed top-8 right-8 z-50",
+      style: { mixBlendMode: 'normal' }
+    },
+      React.createElement('button', {
+        onClick: () => setLightMode(!lightMode),
+        className: `relative w-16 h-8 rounded-full transition-colors duration-300 cursor-pointer focus:outline-none focus:ring-2 focus:ring-purple-500 ${lightMode ? 'bg-gray-200' : 'bg-gray-700'}`,
+        'aria-label': lightMode ? 'Switch to dark mode' : 'Switch to light mode',
+        role: 'switch',
+        'aria-checked': lightMode
+      },
+        // Sliding circle
+        React.createElement('div', {
+          className: `absolute top-1 left-1 w-6 h-6 rounded-full transition-transform duration-300 flex items-center justify-center ${lightMode ? 'translate-x-8 bg-white' : 'translate-x-0 bg-gray-900'}`,
+          style: { transform: lightMode ? 'translateX(32px)' : 'translateX(0)' }
+        },
+          // Icon
+          React.createElement('span', {
+            className: "text-xs",
+            style: { fontSize: '14px' }
+          },
+            lightMode ? '☀️' : '🌙'
+          )
+        )
+      )
+    ),
+
     // Custom Cursor
     React.createElement('div', {
       ref: cursorRef,
@@ -42,7 +100,7 @@ const ThoughtStreamPortfolio = () => {
         transition: 'width 0.3s, height 0.3s'
       }
     },
-      React.createElement('div', { className: "w-full h-full rounded-full border-2 border-white" })
+      React.createElement('div', { className: `w-full h-full rounded-full border-2 border-${colors.cursor}` })
     ),
 
     // Opening: Breathing Gradient Field
@@ -51,10 +109,10 @@ const ThoughtStreamPortfolio = () => {
         className: "absolute inset-0 transition-all duration-1000",
         style: {
           background: `radial-gradient(circle at ${gradientX}% ${gradientY}%, 
-            rgba(139, 92, 246, 0.3) 0%, 
-            rgba(59, 130, 246, 0.2) 25%,
-            rgba(236, 72, 153, 0.2) 50%,
-            rgba(0, 0, 0, 1) 100%)`
+            ${colors.gradient1} 0%, 
+            ${colors.gradient2} 25%,
+            ${colors.gradient3} 50%,
+            ${colors.gradientEnd} 100%)`
         }
       }),
       
@@ -83,7 +141,7 @@ const ThoughtStreamPortfolio = () => {
           )
         ),
         React.createElement('p', {
-          className: "text-xl text-gray-400 tracking-widest",
+          className: `text-xl text-${colors.textSecondary} tracking-widest`,
           style: {
             transform: `translateY(${scrollY * 0.3}px)`,
             opacity: 1 - scrollY / 500
@@ -94,12 +152,12 @@ const ThoughtStreamPortfolio = () => {
       ),
 
       React.createElement('div', { className: "absolute bottom-12 left-1/2 transform -translate-x-1/2" },
-        React.createElement('div', { className: "w-px h-16 bg-gradient-to-b from-white to-transparent animate-pulse" })
+        React.createElement('div', { className: `w-px h-16 bg-gradient-to-b from-${colors.text} to-transparent animate-pulse` })
       )
     ),
 
     // Projects: Distinctive Visual Systems
-    React.createElement('section', { className: "relative min-h-screen py-32 bg-gradient-to-b from-black to-purple-950" },
+    React.createElement('section', { className: `relative min-h-screen py-32 bg-gradient-to-b ${colors.sectionBg}` },
       React.createElement('div', { className: "container mx-auto px-8" },
         React.createElement('h2', {
           className: "text-8xl font-bold mb-20 tracking-tighter",
@@ -128,7 +186,7 @@ const ThoughtStreamPortfolio = () => {
                 }
               }),
 
-              React.createElement('div', { className: "relative p-16 border-l-4 border-purple-500/50" },
+              React.createElement('div', { className: `relative p-16 border-l-4 border-purple-500/50 ${lightMode ? 'bg-white' : ''}` },
                 React.createElement('div', { className: "absolute top-8 right-8 text-sm font-mono text-purple-500 tracking-widest" },
                   "APRIL 2025"
                 ),
@@ -137,7 +195,7 @@ const ThoughtStreamPortfolio = () => {
                   className: "text-7xl font-mono font-bold tracking-tight mb-4 transition-all duration-500",
                   style: {
                     letterSpacing: revealedProject === 1 ? '0.05em' : '-0.02em',
-                    color: revealedProject === 1 ? 'rgb(139, 92, 246)' : 'white'
+                    color: revealedProject === 1 ? 'rgb(139, 92, 246)' : lightMode ? 'black' : 'white'
                   }
                 },
                   "EXPIRE",
@@ -153,8 +211,17 @@ const ThoughtStreamPortfolio = () => {
                     opacity: revealedProject === 1 ? 1 : 0
                   }
                 },
-                  React.createElement('p', { className: "text-xl text-gray-300 leading-relaxed border-l-2 border-purple-500 pl-6" },
+                  React.createElement('p', { className: `text-xl ${lightMode ? 'text-gray-700' : 'text-gray-300'} leading-relaxed border-l-2 border-purple-500 pl-6` },
                     "Reduced household food waste by making expiration tracking automatic and impossible to ignore"
+                  ),
+                  React.createElement('a', {
+                    href: 'https://www.expiresense.com/',
+                    target: '_blank',
+                    rel: 'noopener noreferrer',
+                    className: `text-sm ${lightMode ? 'text-gray-500 hover:text-purple-600' : 'text-gray-400 hover:text-purple-400'} mt-3 inline-block cursor-pointer`,
+                    style: { marginTop: '12px' }
+                  },
+                    "https://www.expiresense.com"
                   )
                 ),
 
@@ -182,7 +249,7 @@ const ThoughtStreamPortfolio = () => {
             onMouseEnter: () => setRevealedProject(2),
             onMouseLeave: () => setRevealedProject(null)
           },
-            React.createElement('div', { className: "relative overflow-hidden bg-zinc-950" },
+            React.createElement('div', { className: `relative overflow-hidden ${lightMode ? 'bg-gray-50' : 'bg-zinc-950'}` },
               React.createElement('div', {
                 className: "absolute inset-0",
                 style: {
@@ -202,7 +269,7 @@ const ThoughtStreamPortfolio = () => {
                   className: "text-7xl font-mono font-extrabold tracking-tight mb-4 transition-all duration-500",
                   style: {
                     letterSpacing: '-0.03em',
-                    color: revealedProject === 2 ? 'rgb(34, 211, 238)' : 'white',
+                    color: revealedProject === 2 ? 'rgb(34, 211, 238)' : lightMode ? 'black' : 'white',
                     fontVariantNumeric: 'tabular-nums'
                   }
                 },
@@ -219,8 +286,8 @@ const ThoughtStreamPortfolio = () => {
                     opacity: revealedProject === 2 ? 1 : 0
                   }
                 },
-                  React.createElement('p', { className: "text-xl text-gray-300 leading-relaxed border-l-2 border-cyan-500 pl-6 font-mono text-base" },
-                    "Conflict resolution engine. Overlap detection. State transitions. No double-bookings allowed."
+                  React.createElement('p', { className: `text-xl ${lightMode ? 'text-gray-700' : 'text-gray-300'} leading-relaxed border-l-2 border-cyan-500 pl-6 font-mono text-base` },
+                    "Built the core booking engine in TypeScript. Handles conflict resolution, overlap detection, booking lifecycle management, and validation logic to prevent double-bookings."
                   )
                 ),
 
@@ -287,7 +354,7 @@ const ThoughtStreamPortfolio = () => {
                 }
               }),
 
-              React.createElement('div', { className: "relative p-16 border-t-2 border-b-2 border-blue-500/30" },
+              React.createElement('div', { className: `relative p-16 border-t-2 border-b-2 border-blue-500/30 ${lightMode ? 'bg-white' : ''}` },
                 React.createElement('div', { className: "absolute top-8 right-8 text-sm font-mono text-blue-400 tracking-widest" },
                   "MAY 2024"
                 ),
@@ -297,7 +364,7 @@ const ThoughtStreamPortfolio = () => {
                   style: {
                     letterSpacing: '0.1em',
                     fontWeight: revealedProject === 3 ? 900 : 700,
-                    color: revealedProject === 3 ? 'rgb(59, 130, 246)' : 'white',
+                    color: revealedProject === 3 ? 'rgb(59, 130, 246)' : lightMode ? 'black' : 'white',
                     textTransform: 'uppercase'
                   }
                 },
@@ -315,8 +382,17 @@ const ThoughtStreamPortfolio = () => {
                     opacity: revealedProject === 3 ? 1 : 0
                   }
                 },
-                  React.createElement('p', { className: "text-xl text-gray-300 leading-relaxed border-l-2 border-blue-500 pl-6" },
-                    "Check out the live site at: https://gpis-kai.netlify.app"
+                  React.createElement('p', { className: `text-xl ${lightMode ? 'text-gray-700' : 'text-gray-300'} leading-relaxed border-l-2 border-blue-500 pl-6` },
+                    "Redesigned a legacy school website using HTML, CSS, JavaScript, and PHP, improving UI/UX, responsiveness, and overall usability."
+                  ),
+                  React.createElement('a', {
+                    href: 'https://gpis-kai.netlify.app',
+                    target: '_blank',
+                    rel: 'noopener noreferrer',
+                    className: `text-sm ${lightMode ? 'text-gray-500 hover:text-purple-600' : 'text-gray-400 hover:text-purple-400'} mt-3 inline-block cursor-pointer`,
+                    style: { marginTop: '12px' }
+                  },
+                    "https://gpis-kai.netlify.app"
                   )
                 ),
 
@@ -356,7 +432,7 @@ const ThoughtStreamPortfolio = () => {
                 }
               }),
 
-              React.createElement('div', { className: "relative p-16 border-r-4 border-pink-500/50" },
+              React.createElement('div', { className: `relative p-16 border-r-4 border-pink-500/50 ${lightMode ? 'bg-white' : ''}` },
                 React.createElement('div', { className: "absolute top-8 right-8 text-sm font-mono text-pink-400 tracking-widest" },
                   "2024"
                 ),
@@ -365,7 +441,7 @@ const ThoughtStreamPortfolio = () => {
                   className: "text-7xl font-bold tracking-tighter mb-4 transition-all duration-500",
                   style: {
                     letterSpacing: revealedProject === 4 ? '-0.05em' : '-0.02em',
-                    color: revealedProject === 4 ? 'rgb(236, 72, 153)' : 'white',
+                    color: revealedProject === 4 ? 'rgb(236, 72, 153)' : lightMode ? 'black' : 'white',
                     fontWeight: 800
                   }
                 },
@@ -382,7 +458,7 @@ const ThoughtStreamPortfolio = () => {
                     opacity: revealedProject === 4 ? 1 : 0
                   }
                 },
-                  React.createElement('p', { className: "text-xl text-gray-300 leading-relaxed border-l-2 border-pink-500 pl-6" },
+                  React.createElement('p', { className: `text-xl ${lightMode ? 'text-gray-700' : 'text-gray-300'} leading-relaxed border-l-2 border-pink-500 pl-6` },
                     "A content blocker that enforces user-defined boundaries, not algorithmic recommendations"
                   )
                 ),
@@ -412,29 +488,29 @@ const ThoughtStreamPortfolio = () => {
     ),
 
     // Resume Download
-    React.createElement('section', { className: "relative h-screen flex items-center justify-center bg-black" },
+    React.createElement('section', { className: `relative h-screen flex items-center justify-center ${lightMode ? 'bg-white' : 'bg-black'}` },
       React.createElement('div', { className: "text-center px-4" },
         React.createElement('h2', { className: "text-7xl font-bold mb-12" }, "RESUME"),
         
         React.createElement('a', { 
           href: "/assets/resume.pdf",
           download: true,
-          className: "inline-block px-12 py-6 border-2 border-purple-500 text-purple-400 hover:bg-purple-500 hover:text-white transition-all duration-300 text-lg tracking-widest mb-8"
+          className: "inline-block px-12 py-6 border-2 border-purple-500 text-purple-400 hover:bg-purple-500 hover:text-white transition-all duration-300 text-lg tracking-widest mb-8 cursor-pointer"
         },
           "DOWNLOAD PDF"
         ),
 
-        React.createElement('p', { className: "text-sm text-gray-600 max-w-md mx-auto" },
+        React.createElement('p', { className: `text-sm text-${colors.textTertiary} max-w-md mx-auto` },
           "Standard format. No animations that crash your PDF reader. No viruses that destroy your device."
         )
       )
     ),
 
     // Contact
-    React.createElement('section', { className: "relative h-screen flex items-center justify-center bg-gradient-to-t from-purple-950 to-black" },
+    React.createElement('section', { className: `relative h-screen flex items-center justify-center bg-gradient-to-t ${colors.footerBg}` },
       React.createElement('div', { className: "text-center px-4" },
         React.createElement('h2', { className: "text-6xl font-bold mb-8" }, "CONTACT"),
-        React.createElement('p', { className: "text-xl text-gray-400 mb-16 max-w-xl mx-auto" },
+        React.createElement('p', { className: `text-xl text-${colors.textSecondary} mb-16 max-w-xl mx-auto` },
           "Open to work and conversation."
         ),
 
@@ -453,7 +529,7 @@ const ThoughtStreamPortfolio = () => {
               href: contact.action,
               target: contact.isExternal ? '_blank' : '_self',
               rel: contact.isExternal ? 'noopener noreferrer' : undefined,
-              className: "px-8 py-4 border-2 border-white hover:bg-white hover:text-black transition-all duration-300 text-sm tracking-widest inline-block",
+              className: `px-8 py-4 border-2 ${lightMode ? 'border-black hover:bg-black hover:text-white' : 'border-white hover:bg-white hover:text-black'} transition-all duration-300 text-sm tracking-widest inline-block cursor-pointer`,
               style: {
                 transform: `translateX(${(mousePos.x - buttonX) * pull * 0.3}px) 
                            translateY(${(mousePos.y - window.innerHeight * 0.5) * pull * 0.3}px)
@@ -469,7 +545,7 @@ const ThoughtStreamPortfolio = () => {
     ),
 
     // Footer
-    React.createElement('footer', { className: "relative py-12 text-center text-gray-600 text-sm" },
+    React.createElement('footer', { className: `relative py-12 text-center text-${colors.textTertiary} text-sm` },
       React.createElement('p', null, "© 2026 — Built with intention, not templates")
     )
   );

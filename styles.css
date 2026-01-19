@@ -115,4 +115,11 @@ body {
   .cursor-pointer {
     cursor: pointer !important;
   }
+
+  @media (max-width: 768px) {
+    .fixed.top-8.right-8 {
+      top: 1rem;
+      right: 1rem;
+    }
+  }
 }
