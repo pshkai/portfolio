@@ -493,7 +493,7 @@ const ThoughtStreamPortfolio = () => {
         React.createElement('h2', { className: "text-7xl font-bold mb-12" }, "RESUME"),
         
         React.createElement('a', { 
-          href: "/assets/resume.pdf",
+          href: "./assets/resume.pdf",
           download: true,
           className: "inline-block px-12 py-6 border-2 border-purple-500 text-purple-400 hover:bg-purple-500 hover:text-white transition-all duration-300 text-lg tracking-widest mb-8 cursor-pointer"
         },
