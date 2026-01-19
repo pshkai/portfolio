@@ -32,33 +32,6 @@ const ThoughtStreamPortfolio = () => {
   const gradientX = (mousePos.x / window.innerWidth) * 100;
   const gradientY = (mousePos.y / window.innerHeight) * 100;
 
-  const tradeoffs = [
-    { 
-      id: 1, 
-      left: "DELIGHT", 
-      right: "SPEED",
-      reveal: 0.15
-    },
-    { 
-      id: 2, 
-      left: "POLISH", 
-      right: "SHIPPING",
-      reveal: 0.35
-    },
-    { 
-      id: 3, 
-      left: "INTUITIVE", 
-      right: "POWERFUL",
-      reveal: 0.55
-    },
-    { 
-      id: 4, 
-      left: "FAMILIAR", 
-      right: "MEMORABLE",
-      reveal: 0.75
-    }
-  ];
-
   return React.createElement('div', { className: "relative w-full min-h-screen bg-black text-white overflow-x-hidden cursor-none" },
     // Custom Cursor
     React.createElement('div', {
@@ -95,7 +68,7 @@ const ThoughtStreamPortfolio = () => {
         }
       }),
 
-      React.createElement('div', { className: "relative z-10 text-center" },
+      React.createElement('div', { className: "relative z-10 text-center px-4" },
         React.createElement('h1', {
           className: "text-8xl font-bold mb-6 tracking-tight",
           style: {
@@ -122,90 +95,6 @@ const ThoughtStreamPortfolio = () => {
 
       React.createElement('div', { className: "absolute bottom-12 left-1/2 transform -translate-x-1/2" },
         React.createElement('div', { className: "w-px h-16 bg-gradient-to-b from-white to-transparent animate-pulse" })
-      )
-    ),
-
-    // What I Optimize For: Tradeoffs
-    React.createElement('section', { className: "relative min-h-screen py-32" },
-      React.createElement('div', { className: "container mx-auto px-8" },
-        React.createElement('h2', { className: "text-6xl font-bold mb-12 opacity-20" }, "WHAT I OPTIMIZE FOR"),
-        React.createElement('p', { className: "text-xl text-gray-500 mb-32 max-w-2xl" },
-          "Good design isn't about doing everything—it's about choosing what to sacrifice."
-        ),
-        
-        React.createElement('div', { className: "space-y-24" },
-          tradeoffs.map((tradeoff) => {
-            const sectionStart = window.innerHeight * 1.5;
-            const revealPoint = sectionStart + (window.innerHeight * tradeoff.reveal);
-            const revealProgress = Math.max(0, Math.min(1, (scrollY - revealPoint + 300) / 400));
-            
-            const containerWidth = window.innerWidth * 0.8;
-            const leftX = window.innerWidth * 0.2;
-            const rightX = window.innerWidth * 0.8;
-            
-            const leftDistance = Math.abs(mousePos.x - leftX);
-            const rightDistance = Math.abs(mousePos.x - rightX);
-            
-            const leftIntensity = Math.max(0, 1 - leftDistance / 400);
-            const rightIntensity = Math.max(0, 1 - rightDistance / 400);
-            
-            return React.createElement('div', {
-              key: tradeoff.id,
-              className: "relative",
-              style: {
-                opacity: revealProgress,
-                transform: `translateY(${(1 - revealProgress) * 50}px)`
-              }
-            },
-              React.createElement('div', { className: "flex justify-between items-center" },
-                React.createElement('div', {
-                  className: "text-6xl font-bold transition-all duration-300",
-                  style: {
-                    color: `rgba(139, 92, 246, ${0.3 + leftIntensity * 0.7})`,
-                    transform: `scale(${1 + leftIntensity * 0.15}) translateX(${leftIntensity * -10}px)`,
-                    textShadow: leftIntensity > 0.3 ? '0 0 30px rgba(139, 92, 246, 0.5)' : 'none'
-                  }
-                },
-                  tradeoff.left
-                ),
-
-                React.createElement('div', {
-                  className: "text-4xl font-light text-gray-700",
-                  style: {
-                    opacity: 0.3 + revealProgress * 0.4
-                  }
-                },
-                  "vs"
-                ),
-
-                React.createElement('div', {
-                  className: "text-6xl font-bold transition-all duration-300",
-                  style: {
-                    color: `rgba(236, 72, 153, ${0.3 + rightIntensity * 0.7})`,
-                    transform: `scale(${1 + rightIntensity * 0.15}) translateX(${rightIntensity * 10}px)`,
-                    textShadow: rightIntensity > 0.3 ? '0 0 30px rgba(236, 72, 153, 0.5)' : 'none'
-                  }
-                },
-                  tradeoff.right
-                )
-              ),
-
-              React.createElement('div', { className: "mt-8 h-px bg-gradient-to-r from-purple-500 via-gray-800 to-pink-500 relative" },
-                React.createElement('div', {
-                  className: "absolute top-1/2 w-3 h-3 bg-white rounded-full transform -translate-y-1/2 transition-all duration-300",
-                  style: {
-                    left: `${50 + (rightIntensity - leftIntensity) * 20}%`,
-                    boxShadow: '0 0 20px rgba(255, 255, 255, 0.5)'
-                  }
-                })
-              )
-            );
-          })
-        ),
-
-        React.createElement('p', { className: "text-center text-gray-600 mt-32 text-sm tracking-widest" },
-          "MOVE YOUR CURSOR TO SHIFT PRIORITIES"
-        )
       )
     ),
 
@@ -241,7 +130,7 @@ const ThoughtStreamPortfolio = () => {
 
               React.createElement('div', { className: "relative p-16 border-l-4 border-purple-500/50" },
                 React.createElement('div', { className: "absolute top-8 right-8 text-sm font-mono text-purple-500 tracking-widest" },
-                  "2025"
+                  "APRIL 2025"
                 ),
 
                 React.createElement('h3', {
@@ -251,11 +140,11 @@ const ThoughtStreamPortfolio = () => {
                     color: revealedProject === 1 ? 'rgb(139, 92, 246)' : 'white'
                   }
                 },
-                  "Expire",
-                  React.createElement('span', { className: "text-purple-500" }, "Sense")
+                  "EXPIRE",
+                  React.createElement('span', { className: "text-purple-500" }, "SENSE")
                 ),
 
-                React.createElement('p', { className: "text-sm text-gray-500 tracking-widest mb-8" }, "FOOD MANAGEMENT SYSTEM / FLUTTER"),
+                React.createElement('p', { className: "text-sm text-gray-500 tracking-widest mb-8" }, "SMART FOOD MANAGEMENT SYSTEM | FLUTTER"),
 
                 React.createElement('div', {
                   className: "overflow-hidden transition-all duration-500",
@@ -287,7 +176,7 @@ const ThoughtStreamPortfolio = () => {
             )
           ),
 
-          // PROJECT 2: CourtBook
+          // PROJECT 2: SportsCourtBookingSystem
           React.createElement('div', {
             className: "relative group cursor-pointer",
             onMouseEnter: () => setRevealedProject(2),
@@ -306,7 +195,7 @@ const ThoughtStreamPortfolio = () => {
 
               React.createElement('div', { className: "relative p-16 border-2 border-cyan-500/20" },
                 React.createElement('div', { className: "absolute top-8 right-8 text-sm font-mono text-cyan-400 tracking-widest" },
-                  "2025"
+                  "DECEMBER 2025"
                 ),
 
                 React.createElement('h3', {
@@ -317,11 +206,11 @@ const ThoughtStreamPortfolio = () => {
                     fontVariantNumeric: 'tabular-nums'
                   }
                 },
-                  "SPORTS COURT",
+                  "SPORTS COURT ",
                   React.createElement('span', { className: "text-cyan-500" }, "BOOKING SYSTEM")
                 ),
 
-                React.createElement('p', { className: "text-sm text-gray-500 tracking-widest mb-8 font-mono" }, "BOOKING SYSTEM / TYPESCRIPT"),
+                React.createElement('p', { className: "text-sm text-gray-500 tracking-widest mb-8 font-mono" }, "BOOKING MANAGEMENT SYSTEM / TYPESCRIPT"),
 
                 React.createElement('div', {
                   className: "overflow-hidden transition-all duration-500",
@@ -335,7 +224,7 @@ const ThoughtStreamPortfolio = () => {
                   )
                 ),
 
-                React.createElement('div', { className: "mt-8 flex gap-3" },
+                React.createElement('div', { className: "mt-8 flex gap-3 flex-wrap" },
                   [
                     { label: 'READY', delay: 0 },
                     { label: 'HOLD', delay: 100 },
@@ -345,7 +234,7 @@ const ThoughtStreamPortfolio = () => {
                   ].map((state, i) =>
                     React.createElement('div', {
                       key: i,
-                      className: "flex-1 transition-all duration-500",
+                      className: "flex-1 min-w-[60px] transition-all duration-500",
                       style: {
                         transitionDelay: `${state.delay}ms`
                       }
@@ -400,7 +289,7 @@ const ThoughtStreamPortfolio = () => {
 
               React.createElement('div', { className: "relative p-16 border-t-2 border-b-2 border-blue-500/30" },
                 React.createElement('div', { className: "absolute top-8 right-8 text-sm font-mono text-blue-400 tracking-widest" },
-                  "2024"
+                  "MAY 2024"
                 ),
 
                 React.createElement('h3', {
@@ -417,7 +306,7 @@ const ThoughtStreamPortfolio = () => {
                   React.createElement('span', { className: "text-blue-400" }, "REMODELING")
                 ),
 
-                React.createElement('p', { className: "text-sm text-gray-500 tracking-widest mb-8" }, "INFORMATIONAL WEBSITE / HTML CSS JAVASCRIPT PHP"),
+                React.createElement('p', { className: "text-sm text-gray-500 tracking-widest mb-8" }, "INFORMATIONAL WEBSITE | HTML CSS JAVASCRIPT PHP"),
 
                 React.createElement('div', {
                   className: "overflow-hidden transition-all duration-500",
@@ -427,7 +316,7 @@ const ThoughtStreamPortfolio = () => {
                   }
                 },
                   React.createElement('p', { className: "text-xl text-gray-300 leading-relaxed border-l-2 border-blue-500 pl-6" },
-                    "Built trust through transparent communication—parents and staff could track progress in real-time"
+                    "Check out the live site at: https://gpis-kai.netlify.app"
                   )
                 ),
 
@@ -484,7 +373,7 @@ const ThoughtStreamPortfolio = () => {
                   React.createElement('span', { className: "text-pink-500" }, "GUARD")
                 ),
 
-                React.createElement('p', { className: "text-sm text-gray-500 tracking-widest mb-8" }, "BROWSER EXTENSION / HTML CSS JAVASCRIPT"),
+                React.createElement('p', { className: "text-sm text-gray-500 tracking-widest mb-8" }, "BROWSER EXTENSION | HTML CSS JAVASCRIPT"),
 
                 React.createElement('div', {
                   className: "overflow-hidden transition-all duration-500",
@@ -524,10 +413,14 @@ const ThoughtStreamPortfolio = () => {
 
     // Resume Download
     React.createElement('section', { className: "relative h-screen flex items-center justify-center bg-black" },
-      React.createElement('div', { className: "text-center" },
+      React.createElement('div', { className: "text-center px-4" },
         React.createElement('h2', { className: "text-7xl font-bold mb-12" }, "RESUME"),
         
-        React.createElement('button', { className: "px-12 py-6 border-2 border-purple-500 text-purple-400 hover:bg-purple-500 hover:text-white transition-all duration-300 text-lg tracking-widest mb-8" },
+        React.createElement('a', { 
+          href: "/assets/resume.pdf",
+          download: true,
+          className: "inline-block px-12 py-6 border-2 border-purple-500 text-purple-400 hover:bg-purple-500 hover:text-white transition-all duration-300 text-lg tracking-widest mb-8"
+        },
           "DOWNLOAD PDF"
         ),
 
@@ -539,29 +432,33 @@ const ThoughtStreamPortfolio = () => {
 
     // Contact
     React.createElement('section', { className: "relative h-screen flex items-center justify-center bg-gradient-to-t from-purple-950 to-black" },
-      React.createElement('div', { className: "text-center" },
+      React.createElement('div', { className: "text-center px-4" },
         React.createElement('h2', { className: "text-6xl font-bold mb-8" }, "CONTACT"),
         React.createElement('p', { className: "text-xl text-gray-400 mb-16 max-w-xl mx-auto" },
           "Open to work and conversation."
         ),
 
-        React.createElement('div', { className: "flex gap-8 justify-center" },
+        React.createElement('div', { className: "flex gap-8 justify-center flex-wrap" },
           [
-            { label: 'EMAIL', action: 'pshkai.business@gmail.com' },
-            { label: 'LINKEDIN', action: 'linkedin.com/in/pshkai' },
-            { label: 'GITHUB', action: 'github.com/pshkai' }
+            { label: 'EMAIL', action: 'mailto:pshkai.business@gmail.com', isExternal: false },
+            { label: 'LINKEDIN', action: 'https://www.linkedin.com/in/pshkai', isExternal: true },
+            { label: 'GITHUB', action: 'https://github.com/pshkai', isExternal: true }
           ].map((contact, i) => {
             const buttonX = window.innerWidth / 2 + (i - 1) * 200;
             const distance = Math.hypot(mousePos.x - buttonX, mousePos.y - window.innerHeight * 0.5);
             const pull = Math.max(0, 1 - distance / 200);
 
-            return React.createElement('button', {
+            return React.createElement('a', {
               key: i,
-              className: "px-8 py-4 border-2 border-white hover:bg-white hover:text-black transition-all duration-300 text-sm tracking-widest",
+              href: contact.action,
+              target: contact.isExternal ? '_blank' : '_self',
+              rel: contact.isExternal ? 'noopener noreferrer' : undefined,
+              className: "px-8 py-4 border-2 border-white hover:bg-white hover:text-black transition-all duration-300 text-sm tracking-widest inline-block",
               style: {
                 transform: `translateX(${(mousePos.x - buttonX) * pull * 0.3}px) 
                            translateY(${(mousePos.y - window.innerHeight * 0.5) * pull * 0.3}px)
-                           scale(${1 + pull * 0.1})`
+                           scale(${1 + pull * 0.1})`,
+                textDecoration: 'none'
               }
             },
               contact.label

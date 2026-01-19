@@ -21,4 +21,98 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  /* Prevent horizontal overflow */
+  .container {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+
+  /* Fluid typography for hero */
+  h1 {
+    font-size: clamp(2.5rem, 10vw, 6rem) !important;
+  }
+
+  /* Section headings */
+  h2 {
+    font-size: clamp(2rem, 8vw, 4rem) !important;
+  }
+
+  /* Project titles */
+  h3 {
+    font-size: clamp(1.75rem, 6vw, 3.5rem) !important;
+  }
+
+  /* Body text */
+  p {
+    font-size: clamp(0.875rem, 2vw, 1.25rem) !important;
+  }
+
+  /* Increase button tap targets */
+  button {
+    min-height: 48px !important;
+    min-width: 48px !important;
+    padding: 1rem 1.5rem !important;
+  }
+
+  /* Stack project indicators vertically */
+  .grid {
+    grid-template-columns: repeat(4, 1fr) !important;
+  }
+
+  /* Reduce padding in project cards */
+  .p-16 {
+    padding: 2rem !important;
+  }
+
+  /* Stack contact buttons vertically */
+  .flex.gap-8 {
+    flex-direction: column !important;
+    gap: 1rem !important;
+  }
+
+  /* Full width buttons on mobile */
+  .flex.gap-8 button {
+    width: 100% !important;
+  }
+
+  /* Reduce spacing */
+  .py-32 {
+    padding-top: 4rem !important;
+    padding-bottom: 4rem !important;
+  }
+
+  .mb-32 {
+    margin-bottom: 2rem !important;
+  }
+
+  .mb-20 {
+    margin-bottom: 1.5rem !important;
+  }
+
+  .space-y-24 > * + * {
+    margin-top: 3rem !important;
+  }
+
+  /* Hide custom cursor on mobile (no mouse) */
+  .mix-blend-difference {
+    display: none !important;
+  }
+
+  /* Enable default cursor on mobile */
+  body {
+    cursor: auto !important;
+  }
+
+  .cursor-none {
+    cursor: auto !important;
+  }
+
+  .cursor-pointer {
+    cursor: pointer !important;
+  }
 }
