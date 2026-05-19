@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion } from "framer-motion";
 import { contactInfo } from "@/data/contact";
@@ -16,7 +16,6 @@ export function Footer() {
     >
       <div className="section-container py-10">
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-          {/* Left: name + tagline */}
           <div className="text-center sm:text-left">
             <p className="font-serif text-lg text-stone-900">
               Kai<span className="text-stone-400">.</span>
@@ -25,36 +24,19 @@ export function Footer() {
               Backend developer · Open to opportunities
             </p>
           </div>
-
-          {/* Center: links */}
           <div className="flex items-center gap-5">
-            
-              href={`mailto:${contactInfo.email}`}
-              className="text-xs text-stone-500 hover:text-stone-900 transition-colors"
-            >
+            <a href={"mailto:" + contactInfo.email} className="text-xs text-stone-500 hover:text-stone-900 transition-colors">
               Email
             </a>
-            
-              href={contactInfo.linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-xs text-stone-500 hover:text-stone-900 transition-colors"
-            >
+            <a href={contactInfo.linkedin} target="_blank" rel="noopener noreferrer" className="text-xs text-stone-500 hover:text-stone-900 transition-colors">
               LinkedIn
             </a>
-            
-              href={contactInfo.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-xs text-stone-500 hover:text-stone-900 transition-colors"
-            >
+            <a href={contactInfo.github} target="_blank" rel="noopener noreferrer" className="text-xs text-stone-500 hover:text-stone-900 transition-colors">
               GitHub
             </a>
           </div>
-
-          {/* Right: copyright */}
           <p className="text-xs text-stone-400">
-            © {year} Pyae Sone Htoo
+            Copyright {year} Pyae Sone Htoo
           </p>
         </div>
       </div>

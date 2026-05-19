@@ -23,7 +23,6 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Close mobile menu on resize
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth >= 768) setMobileOpen(false);
@@ -46,19 +45,16 @@ export function Navbar() {
         )}
       >
         <div className="section-container flex items-center justify-between">
-          {/* Logo */}
-          
+          <a
             href="#"
             className="font-serif text-xl text-stone-900 tracking-tight hover:text-stone-600 transition-colors"
           >
-            Kai
-            <span className="text-stone-400">.</span>
+            Kai<span className="text-stone-400">.</span>
           </a>
 
-          {/* Desktop Nav */}
           <nav className="hidden md:flex items-center gap-1">
             {navLinks.map((link) => (
-              
+              <a
                 key={link.href}
                 href={link.href}
                 className="px-4 py-2 text-sm text-stone-600 hover:text-stone-900 hover:bg-stone-100 rounded-full transition-all duration-150 font-medium"
@@ -68,9 +64,8 @@ export function Navbar() {
             ))}
           </nav>
 
-          {/* Desktop CTA */}
           <div className="hidden md:flex items-center gap-3">
-            
+            <a
               href={contactInfo.resume}
               download
               className="px-4 py-2 text-sm font-medium text-stone-900 border border-stone-200 rounded-full hover:bg-stone-900 hover:text-stone-50 hover:border-stone-900 transition-all duration-200"
@@ -79,7 +74,6 @@ export function Navbar() {
             </a>
           </div>
 
-          {/* Mobile Hamburger */}
           <button
             onClick={() => setMobileOpen((v) => !v)}
             aria-label="Toggle menu"
@@ -104,7 +98,6 @@ export function Navbar() {
         </div>
       </motion.header>
 
-      {/* Mobile Menu */}
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
@@ -116,7 +109,7 @@ export function Navbar() {
           >
             <nav className="flex flex-col gap-1">
               {navLinks.map((link) => (
-                
+                <a
                   key={link.href}
                   href={link.href}
                   onClick={() => setMobileOpen(false)}
@@ -126,7 +119,7 @@ export function Navbar() {
                 </a>
               ))}
               <div className="border-t border-stone-100 mt-2 pt-3">
-                
+                <a
                   href={contactInfo.resume}
                   download
                   className="block w-full text-center px-4 py-2.5 text-sm font-medium bg-stone-900 text-stone-50 rounded-full hover:bg-stone-800 transition-colors"
