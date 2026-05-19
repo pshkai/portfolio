@@ -51,7 +51,7 @@ export function Hero() {
           <motion.div variants={item}>
             <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-medium tracking-wide bg-white/80 border border-stone-200 text-stone-600 shadow-sm backdrop-blur-sm">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-              Open to internships &amp; junior roles
+              Open to Internships &amp; Junior Roles
             </span>
           </motion.div>
 

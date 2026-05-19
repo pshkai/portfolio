@@ -37,7 +37,7 @@ export function About() {
               className="space-y-4 text-stone-600 leading-relaxed font-light text-[15px]"
             >
               <p>
-                Hi, I am Kai — a backend-focused software developer with hands-on experience building REST APIs, service-layer architectures, and product-driven backend systems across real commercial projects.
+                Hi, I am Kai — a backend-focused software engineer with hands-on experience building REST APIs, service-layer architectures, and product-driven backend systems across real commercial projects.
               </p>
               <p>
                 I have worked on commerce platforms, education systems, and consumer apps — handling everything from product and order flows to authentication, pricing logic, and database modelling with PostgreSQL and Sequelize.
@@ -46,7 +46,7 @@ export function About() {
                 Outside of professional work, I build independently — from a property platform and a sports court booking system to a Flutter and FastAPI expiry tracking app. I ship things end to end and care deeply about code that is maintainable, not just functional.
               </p>
               <p>
-                I am currently open to software engineering internships and junior backend roles where I can contribute meaningfully and keep growing.
+                I am currently open to software engineering internships and junior backend engineer roles where I can contribute meaningfully and keep growing.
               </p>
             </motion.div>
 

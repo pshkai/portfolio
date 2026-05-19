@@ -42,8 +42,8 @@ function Field({ label, id, type = "text", placeholder, value, onChange, require
 const contactLinks = [
   { label: "Email", value: contactInfo.email, href: "mailto:" + contactInfo.email, icon: "✉️" },
   { label: "Phone", value: contactInfo.phone, href: "tel:" + contactInfo.phone, icon: "📞" },
-  { label: "LinkedIn", value: "linkedin.com/in/your-handle", href: contactInfo.linkedin, icon: "💼", external: true },
-  { label: "GitHub", value: "github.com/your-handle", href: contactInfo.github, icon: "🐙", external: true },
+  { label: "LinkedIn", value: "linkedin.com/in/pshkai", href: contactInfo.linkedin, icon: "💼", external: true },
+  { label: "GitHub", value: "github.com/pshkai", href: contactInfo.github, icon: "🐙", external: true },
 ];
 
 export function Contact() {
@@ -138,7 +138,6 @@ export function Contact() {
                   <Field label="Subject" id="subject" placeholder="What is this about?" value={form.subject} onChange={handleChange} required />
                   <Field label="Message" id="message" placeholder="Tell me about the role, project, or anything else..." value={form.message} onChange={handleChange} required textarea rows={5} />
                   <div className="flex items-center justify-between gap-4 pt-1">
-                    <p className="text-xs text-stone-400 font-light">No backend yet — UI preview only.</p>
                     <Button type="submit" variant="primary" size="md">Send Message</Button>
                   </div>
                 </form>
