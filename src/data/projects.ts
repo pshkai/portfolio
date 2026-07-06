@@ -81,7 +81,7 @@ export const personalProjects: Project[] = [
       "Focused on accessibility and legibility to better serve students, parents, and staff.",
     ],
     links: {
-      demo: "#",
+      demo: "https://gpis-kai.netlify.app/",
       github: "#",
     },
   },
