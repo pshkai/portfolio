@@ -68,7 +68,7 @@ export const personalProjects: Project[] = [
       "Designed with user protection in mind, delivering a clean and unobtrusive experience.",
     ],
     links: {
-      github: "#",
+      github: "https://github.com/pshkai/adult-site-blocking-extension",
     },
   },
   {
