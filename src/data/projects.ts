@@ -82,7 +82,7 @@ export const personalProjects: Project[] = [
     ],
     links: {
       demo: "https://gpis-kai.netlify.app/",
-      github: "#",
+      github: "https://github.com/pshkai/GlobalPathwaysInternationalSchool-Website",
     },
   },
 ];
