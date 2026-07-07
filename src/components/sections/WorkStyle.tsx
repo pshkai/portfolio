@@ -38,7 +38,7 @@ const values = [
 
 export function WorkStyle() {
   return (
-    <section id="workstyle" className="py-24 bg-white">
+    <section id="workstyle" className="py-24 bg-white dark:bg-stone-950">
       <div className="section-container">
         <SectionHeading
           label="Work Style"
@@ -46,7 +46,7 @@ export function WorkStyle() {
           subtitle="The principles I bring to every project — independent or collaborative."
         />
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-stone-100 rounded-2xl overflow-hidden border border-stone-100">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-stone-100 rounded-2xl overflow-hidden border border-stone-100 dark:bg-stone-800 dark:border-stone-800">
           {values.map((value, i) => (
             <motion.div
               key={value.number}
@@ -59,18 +59,18 @@ export function WorkStyle() {
                 ease: [0.22, 1, 0.36, 1],
               }}
               whileHover={{
-                backgroundColor: "rgba(250,250,249,1)",
+                backgroundColor: "var(--card)",
                 transition: { duration: 0.15 },
               }}
-              className="bg-white p-7 flex flex-col gap-3 group"
+              className="bg-white p-7 flex flex-col gap-3 group dark:bg-stone-950"
             >
-              <span className="font-serif text-3xl text-stone-200 group-hover:text-stone-300 transition-colors leading-none select-none">
+              <span className="font-serif text-3xl text-stone-200 group-hover:text-stone-300 transition-colors leading-none select-none dark:text-stone-800 dark:group-hover:text-stone-700">
                 {value.number}
               </span>
-              <h3 className="font-medium text-stone-900 text-sm tracking-tight leading-snug">
+              <h3 className="font-medium text-stone-900 text-sm tracking-tight leading-snug dark:text-stone-100">
                 {value.title}
               </h3>
-              <p className="text-stone-500 text-sm leading-relaxed font-light">
+              <p className="text-stone-500 text-sm leading-relaxed font-light dark:text-stone-400">
                 {value.body}
               </p>
             </motion.div>

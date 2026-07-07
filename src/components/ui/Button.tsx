@@ -22,13 +22,13 @@ interface ButtonProps {
 
 const variantStyles: Record<ButtonVariant, string> = {
   primary:
-    "bg-stone-900 text-stone-50 hover:bg-stone-800 border border-stone-900 hover:border-stone-800 shadow-sm",
+    "bg-stone-900 text-stone-50 hover:bg-stone-800 border border-stone-900 hover:border-stone-800 shadow-sm dark:bg-stone-50 dark:text-stone-950 dark:hover:bg-stone-200 dark:border-stone-50 dark:hover:border-stone-200",
   secondary:
-    "bg-white text-stone-900 hover:bg-stone-50 border border-stone-200 hover:border-stone-300 shadow-sm",
+    "bg-white text-stone-900 hover:bg-stone-50 border border-stone-200 hover:border-stone-300 shadow-sm dark:bg-stone-900 dark:text-stone-100 dark:hover:bg-stone-800 dark:border-stone-700 dark:hover:border-stone-600",
   ghost:
-    "bg-transparent text-stone-700 hover:bg-stone-100 hover:text-stone-900 border border-transparent",
+    "bg-transparent text-stone-700 hover:bg-stone-100 hover:text-stone-900 border border-transparent dark:text-stone-300 dark:hover:bg-stone-800 dark:hover:text-stone-50",
   outline:
-    "bg-transparent text-stone-900 border border-stone-300 hover:border-stone-900 hover:bg-stone-50",
+    "bg-transparent text-stone-900 border border-stone-300 hover:border-stone-900 hover:bg-stone-50 dark:text-stone-100 dark:border-stone-700 dark:hover:border-stone-100 dark:hover:bg-stone-900",
 };
 
 const sizeStyles: Record<ButtonSize, string> = {
@@ -50,7 +50,7 @@ export function Button({
   download,
 }: ButtonProps) {
   const baseStyles =
-    "inline-flex items-center justify-center font-medium rounded-full transition-all duration-200 ease-out cursor-pointer select-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-stone-900 focus-visible:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed";
+    "inline-flex items-center justify-center font-medium rounded-full transition-all duration-200 ease-out cursor-pointer select-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-stone-900 focus-visible:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed dark:focus-visible:ring-stone-100 dark:focus-visible:ring-offset-stone-950";
 
   const allStyles = cn(baseStyles, variantStyles[variant], sizeStyles[size], className);
 

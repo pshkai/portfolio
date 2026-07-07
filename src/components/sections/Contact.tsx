@@ -20,15 +20,15 @@ function Field({ label, id, type = "text", placeholder, value, onChange, require
   required?: boolean; textarea?: boolean; rows?: number;
 }) {
   const baseClass = cn(
-    "w-full px-4 py-3 rounded-xl text-sm text-stone-900 placeholder:text-stone-400",
-    "bg-white border border-stone-200 outline-none",
-    "focus:border-stone-400 focus:ring-2 focus:ring-stone-900/6",
+    "w-full px-4 py-3 rounded-xl text-sm text-stone-900 placeholder:text-stone-400 dark:text-stone-100 dark:placeholder:text-stone-500",
+    "bg-white border border-stone-200 outline-none dark:bg-stone-950 dark:border-stone-700",
+    "focus:border-stone-400 focus:ring-2 focus:ring-stone-900/6 dark:focus:border-stone-500",
     "transition-all duration-150 font-light"
   );
   return (
     <div className="flex flex-col gap-1.5">
-      <label htmlFor={id} className="text-xs font-medium text-stone-600 tracking-wide">
-        {label}{required && <span className="text-stone-400 ml-0.5">*</span>}
+      <label htmlFor={id} className="text-xs font-medium text-stone-600 tracking-wide dark:text-stone-300">
+        {label}{required && <span className="text-stone-400 ml-0.5 dark:text-stone-500">*</span>}
       </label>
       {textarea ? (
         <textarea id={id} name={id} placeholder={placeholder} value={value} onChange={onChange} required={required} rows={rows} className={cn(baseClass, "resize-none")} />
@@ -60,7 +60,7 @@ export function Contact() {
   }
 
   return (
-    <section id="contact" className="py-24 bg-stone-50">
+    <section id="contact" className="py-24 bg-stone-50 dark:bg-stone-900">
       <div className="section-container">
         <SectionHeading
           label="Contact"
@@ -86,8 +86,8 @@ export function Contact() {
                 >
                   <span className="text-xl shrink-0" aria-hidden="true">{link.icon}</span>
                   <div className="min-w-0">
-                    <p className="text-xs text-stone-400 font-medium tracking-wide">{link.label}</p>
-                    <p className="text-sm text-stone-700 font-medium truncate group-hover:text-stone-900 transition-colors">{link.value}</p>
+                    <p className="text-xs text-stone-400 font-medium tracking-wide dark:text-stone-500">{link.label}</p>
+                    <p className="text-sm text-stone-700 font-medium truncate group-hover:text-stone-900 transition-colors dark:text-stone-300 dark:group-hover:text-stone-50">{link.value}</p>
                   </div>
                 </a>
               ))}
@@ -98,8 +98,8 @@ export function Contact() {
             <div className="glass-card p-4 flex items-start gap-3">
               <span className="mt-0.5 w-2 h-2 rounded-full bg-emerald-400 shrink-0 animate-pulse" aria-hidden="true" />
               <div>
-                <p className="text-sm font-medium text-stone-900">Currently available</p>
-                <p className="text-xs text-stone-500 font-light mt-0.5 leading-relaxed">{contactInfo.availability}</p>
+                <p className="text-sm font-medium text-stone-900 dark:text-stone-100">Currently available</p>
+                <p className="text-xs text-stone-500 font-light mt-0.5 leading-relaxed dark:text-stone-400">{contactInfo.availability}</p>
               </div>
             </div>
           </motion.div>
@@ -120,11 +120,11 @@ export function Contact() {
                   className="flex flex-col items-center justify-center gap-4 py-12 text-center"
                 >
                   <span className="text-4xl" aria-hidden="true">✅</span>
-                  <h3 className="font-serif text-2xl text-stone-900">Message received.</h3>
-                  <p className="text-stone-500 text-sm font-light max-w-xs">Thanks for reaching out. I will get back to you as soon as I can.</p>
+                  <h3 className="font-serif text-2xl text-stone-900 dark:text-stone-50">Message received.</h3>
+                  <p className="text-stone-500 text-sm font-light max-w-xs dark:text-stone-400">Thanks for reaching out. I will get back to you as soon as I can.</p>
                   <button
                     onClick={() => { setSubmitted(false); setForm({ name: "", email: "", subject: "", message: "" }); }}
-                    className="mt-2 text-xs text-stone-400 hover:text-stone-700 underline underline-offset-4 transition-colors"
+                    className="mt-2 text-xs text-stone-400 hover:text-stone-700 underline underline-offset-4 transition-colors dark:text-stone-500 dark:hover:text-stone-200"
                   >
                     Send another message
                   </button>

@@ -29,15 +29,15 @@ export function SectionHeading({
       className={cn("flex flex-col gap-3 mb-12", alignStyles, className)}
     >
       {label && (
-        <span className="text-xs font-medium tracking-widest uppercase text-stone-400 font-sans">
+        <span className="text-xs font-medium tracking-widest uppercase text-stone-400 font-sans dark:text-stone-500">
           {label}
         </span>
       )}
-      <h2 className="font-serif text-3xl sm:text-4xl text-stone-900 leading-tight">
+      <h2 className="font-serif text-3xl sm:text-4xl text-stone-900 leading-tight dark:text-stone-50">
         {title}
       </h2>
       {subtitle && (
-        <p className="text-stone-500 text-base sm:text-lg max-w-xl leading-relaxed font-sans font-light">
+        <p className="text-stone-500 text-base sm:text-lg max-w-xl leading-relaxed font-sans font-light dark:text-stone-400">
           {subtitle}
         </p>
       )}

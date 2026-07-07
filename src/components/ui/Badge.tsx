@@ -7,9 +7,9 @@ interface BadgeProps {
 }
 
 const variantStyles = {
-  default: "bg-stone-100 text-stone-700 border border-stone-200",
-  muted: "bg-stone-50 text-stone-500 border border-stone-100",
-  accent: "bg-stone-900 text-stone-50 border border-stone-900",
+  default: "bg-stone-100 text-stone-700 border border-stone-200 dark:bg-stone-800 dark:text-stone-200 dark:border-stone-700",
+  muted: "bg-stone-50 text-stone-500 border border-stone-100 dark:bg-stone-900 dark:text-stone-400 dark:border-stone-800",
+  accent: "bg-stone-900 text-stone-50 border border-stone-900 dark:bg-stone-100 dark:text-stone-950 dark:border-stone-100",
 };
 
 export function Badge({ children, className, variant = "default" }: BadgeProps) {

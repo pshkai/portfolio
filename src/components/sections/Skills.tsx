@@ -7,7 +7,7 @@ import { skillCategories } from "@/data/skills";
 
 export function Skills() {
   return (
-    <section id="skills" className="py-24 bg-stone-50">
+    <section id="skills" className="py-24 bg-stone-50 dark:bg-stone-900">
       <div className="section-container">
         <SectionHeading
           label="Tech Stack"
@@ -39,7 +39,7 @@ export function Skills() {
                 <span className="text-xl" aria-hidden>
                   {cat.icon}
                 </span>
-                <h3 className="font-medium text-stone-900 text-sm tracking-tight">
+                <h3 className="font-medium text-stone-900 text-sm tracking-tight dark:text-stone-100">
                   {cat.category}
                 </h3>
               </div>
@@ -62,7 +62,7 @@ export function Skills() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.4 }}
-          className="mt-10 text-sm text-stone-400 font-light"
+          className="mt-10 text-sm text-stone-400 font-light dark:text-stone-500"
         >
           Always learning — currently deepening knowledge in system design and
           scalable backend patterns.

@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import Script from "next/script";
 import "./globals.css";
 
 export const viewport: Viewport = {
@@ -48,8 +49,21 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="scroll-smooth">
-      <body className="bg-stone-50 text-stone-900 font-sans antialiased">
+    <html lang="en" className="scroll-smooth" suppressHydrationWarning>
+      <body className="bg-stone-50 text-stone-900 font-sans antialiased transition-colors duration-300 dark:bg-stone-950 dark:text-stone-100">
+        <Script id="theme-init" strategy="beforeInteractive">
+          {`
+            try {
+              var storedTheme = localStorage.getItem("theme");
+              var prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+              if (storedTheme === "dark" || (!storedTheme && prefersDark)) {
+                document.documentElement.classList.add("dark");
+              } else {
+                document.documentElement.classList.remove("dark");
+              }
+            } catch (_) {}
+          `}
+        </Script>
         {/* Skip to main content — keyboard/screen reader accessibility */}
         <a href="#about" className="skip-link">
           Skip to main content

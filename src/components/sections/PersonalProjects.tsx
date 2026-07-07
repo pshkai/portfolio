@@ -32,15 +32,15 @@ function ProjectCard({
       {/* Header */}
       <div className="flex items-start justify-between gap-3">
         <div>
-          <h3 className="font-serif text-xl text-stone-900 leading-snug">
+          <h3 className="font-serif text-xl text-stone-900 leading-snug dark:text-stone-50">
             {project.name}
           </h3>
-          <p className="text-stone-500 text-sm mt-1 font-light leading-snug">
+          <p className="text-stone-500 text-sm mt-1 font-light leading-snug dark:text-stone-400">
             {project.tagline}
           </p>
         </div>
         {project.featured && (
-          <span className="shrink-0 mt-0.5 inline-flex items-center px-2.5 py-0.5 rounded-full text-[10px] font-medium tracking-wide bg-amber-50 text-amber-700 border border-amber-200">
+          <span className="shrink-0 mt-0.5 inline-flex items-center px-2.5 py-0.5 rounded-full text-[10px] font-medium tracking-wide bg-amber-50 text-amber-700 border border-amber-200 dark:bg-amber-950/40 dark:text-amber-200 dark:border-amber-900">
             Featured
           </span>
         )}
@@ -61,9 +61,9 @@ function ProjectCard({
           <li key={i} className="flex gap-3 items-start">
             <span
               aria-hidden
-              className="mt-[6px] shrink-0 w-1 h-1 rounded-full bg-stone-400"
+              className="mt-[6px] shrink-0 w-1 h-1 rounded-full bg-stone-400 dark:bg-stone-500"
             />
-            <p className="text-stone-600 text-sm leading-relaxed font-light">
+            <p className="text-stone-600 text-sm leading-relaxed font-light dark:text-stone-300">
               {point}
             </p>
           </li>
@@ -71,7 +71,7 @@ function ProjectCard({
       </ul>
 
       {/* Links */}
-      <div className="flex flex-wrap gap-2 pt-1 border-t border-stone-100">
+      <div className="flex flex-wrap gap-2 pt-1 border-t border-stone-100 dark:border-stone-800">
         {project.links.demo && (
           <Button href={project.links.demo} variant="primary" size="sm" external>
             View Project
@@ -108,7 +108,7 @@ export function PersonalProjects() {
   const rest = personalProjects.slice(3);
 
   return (
-    <section id="projects" className="py-24 bg-white">
+    <section id="projects" className="py-24 bg-white dark:bg-stone-950">
       <div className="section-container">
         <SectionHeading
           label="Personal Projects"

@@ -32,21 +32,21 @@ function ExperienceCard({
       <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3">
         <div>
           <div className="flex items-center gap-2.5 flex-wrap">
-            <h3 className="font-serif text-xl text-stone-900">
+            <h3 className="font-serif text-xl text-stone-900 dark:text-stone-50">
               {project.company}
             </h3>
-            <span className="text-xs font-medium px-2.5 py-0.5 rounded-full bg-stone-100 text-stone-500 border border-stone-200">
+            <span className="text-xs font-medium px-2.5 py-0.5 rounded-full bg-stone-100 text-stone-500 border border-stone-200 dark:bg-stone-800 dark:text-stone-300 dark:border-stone-700">
               {project.type}
             </span>
           </div>
-          <p className="text-sm text-stone-500 font-medium mt-0.5">
+          <p className="text-sm text-stone-500 font-medium mt-0.5 dark:text-stone-400">
             {project.role}
           </p>
         </div>
       </div>
 
       {/* Tagline */}
-      <p className="text-stone-600 text-sm leading-relaxed font-light border-l-2 border-stone-200 pl-4 italic">
+      <p className="text-stone-600 text-sm leading-relaxed font-light border-l-2 border-stone-200 pl-4 italic dark:text-stone-300 dark:border-stone-700">
         {project.tagline}
       </p>
 
@@ -56,9 +56,9 @@ function ExperienceCard({
           <li key={i} className="flex gap-3 items-start">
             <span
               aria-hidden
-              className="mt-[7px] shrink-0 w-1 h-1 rounded-full bg-stone-400"
+              className="mt-[7px] shrink-0 w-1 h-1 rounded-full bg-stone-400 dark:bg-stone-500"
             />
-            <p className="text-stone-600 text-sm leading-relaxed font-light">
+            <p className="text-stone-600 text-sm leading-relaxed font-light dark:text-stone-300">
               {point}
             </p>
           </li>
@@ -66,7 +66,7 @@ function ExperienceCard({
       </ul>
 
       {/* Tech stack */}
-      <div className="flex flex-wrap gap-1.5 pt-1 border-t border-stone-100">
+      <div className="flex flex-wrap gap-1.5 pt-1 border-t border-stone-100 dark:border-stone-800">
         {project.stack.map((tech) => (
           <Badge key={tech} variant="muted">
             {tech}
@@ -79,7 +79,7 @@ function ExperienceCard({
 
 export function ProfessionalExperience() {
   return (
-    <section id="experience" className="py-24 bg-stone-50">
+    <section id="experience" className="py-24 bg-stone-50 dark:bg-stone-900">
       <div className="section-container">
         <SectionHeading
           label="Professional Experience"
@@ -92,7 +92,7 @@ export function ProfessionalExperience() {
           {/* Vertical line — decorative */}
           <div
             aria-hidden
-            className="hidden lg:block absolute left-[18px] top-4 bottom-4 w-px bg-gradient-to-b from-stone-200 via-stone-300 to-transparent"
+            className="hidden lg:block absolute left-[18px] top-4 bottom-4 w-px bg-gradient-to-b from-stone-200 via-stone-300 to-transparent dark:from-stone-700 dark:via-stone-600"
           />
 
           <div className="flex flex-col gap-6 lg:pl-12">
@@ -105,7 +105,7 @@ export function ProfessionalExperience() {
                   viewport={{ once: true }}
                   transition={{ duration: 0.3, delay: i * 0.1 + 0.2 }}
                   aria-hidden
-                  className="hidden lg:block absolute -left-[49px] top-7 w-3 h-3 rounded-full bg-white border-2 border-stone-400 shadow-sm"
+                  className="hidden lg:block absolute -left-[49px] top-7 w-3 h-3 rounded-full bg-white border-2 border-stone-400 shadow-sm dark:bg-stone-950 dark:border-stone-500"
                 />
                 <ExperienceCard project={project} index={i} />
               </div>
@@ -119,7 +119,7 @@ export function ProfessionalExperience() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.35 }}
-          className="mt-10 text-xs text-stone-400 font-light"
+          className="mt-10 text-xs text-stone-400 font-light dark:text-stone-500"
         >
           * Project details are shared at a high level to respect client and
           employer confidentiality.
