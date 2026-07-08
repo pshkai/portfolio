@@ -50,7 +50,7 @@ export function Navbar() {
             : "py-5 bg-transparent"
         )}
       >
-        <div className="section-container flex items-center justify-between">
+        <div className="section-container relative flex items-center justify-between">
           <Link
             href="/"
             className="font-serif text-xl text-stone-900 tracking-tight hover:text-stone-600 transition-colors dark:text-stone-50 dark:hover:text-stone-300"
@@ -58,7 +58,7 @@ export function Navbar() {
             Kai<span className="text-stone-400 dark:text-stone-500">.</span>
           </Link>
 
-          <nav className="hidden md:flex items-center gap-1">
+          <nav className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-1 md:flex">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
