@@ -2,21 +2,26 @@
 
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { contactInfo } from "@/data/contact";
 import { ThemeToggle } from "@/components/ThemeToggle";
 
 const navLinks = [
-  { label: "About", href: "#about" },
-  { label: "Skills", href: "#skills" },
-  { label: "Projects", href: "#projects" },
-  { label: "Experience", href: "#experience" },
-  { label: "Contact", href: "#contact" },
+  { label: "About", href: "/#about" },
+  { label: "Skills", href: "/#skills" },
+  { label: "Projects", href: "/projects" },
+  { label: "Experience", href: "/experience" },
+  { label: "Contact", href: "/#contact" },
 ];
 
 export function Navbar() {
+  const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+
+  const isActive = (href: string) => href !== "/" && pathname === href;
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 24);
@@ -46,22 +51,26 @@ export function Navbar() {
         )}
       >
         <div className="section-container flex items-center justify-between">
-          <a
-            href="#"
+          <Link
+            href="/"
             className="font-serif text-xl text-stone-900 tracking-tight hover:text-stone-600 transition-colors dark:text-stone-50 dark:hover:text-stone-300"
           >
             Kai<span className="text-stone-400 dark:text-stone-500">.</span>
-          </a>
+          </Link>
 
           <nav className="hidden md:flex items-center gap-1">
             {navLinks.map((link) => (
-              <a
+              <Link
                 key={link.href}
                 href={link.href}
-                className="px-4 py-2 text-sm text-stone-600 hover:text-stone-900 hover:bg-stone-100 rounded-full transition-all duration-150 font-medium dark:text-stone-300 dark:hover:text-stone-50 dark:hover:bg-stone-800"
+                className={cn(
+                  "px-4 py-2 text-sm text-stone-600 hover:text-stone-900 hover:bg-stone-100 rounded-full transition-all duration-150 font-medium dark:text-stone-300 dark:hover:text-stone-50 dark:hover:bg-stone-800",
+                  isActive(link.href) &&
+                    "bg-stone-100 text-stone-900 dark:bg-stone-800 dark:text-stone-50"
+                )}
               >
                 {link.label}
-              </a>
+              </Link>
             ))}
           </nav>
 
@@ -111,14 +120,18 @@ export function Navbar() {
           >
             <nav className="flex flex-col gap-1">
               {navLinks.map((link) => (
-                <a
+                <Link
                   key={link.href}
                   href={link.href}
                   onClick={() => setMobileOpen(false)}
-                  className="px-4 py-3 text-sm font-medium text-stone-700 hover:text-stone-900 hover:bg-stone-100 rounded-xl transition-all duration-150 dark:text-stone-300 dark:hover:text-stone-50 dark:hover:bg-stone-800"
+                  className={cn(
+                    "px-4 py-3 text-sm font-medium text-stone-700 hover:text-stone-900 hover:bg-stone-100 rounded-xl transition-all duration-150 dark:text-stone-300 dark:hover:text-stone-50 dark:hover:bg-stone-800",
+                    isActive(link.href) &&
+                      "bg-stone-100 text-stone-900 dark:bg-stone-800 dark:text-stone-50"
+                  )}
                 >
                   {link.label}
-                </a>
+                </Link>
               ))}
               <div className="border-t border-stone-100 mt-2 pt-3 dark:border-stone-800">
                 <div className="mb-3 flex justify-center">

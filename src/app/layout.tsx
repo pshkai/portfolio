@@ -65,7 +65,7 @@ export default function RootLayout({
           `}
         </Script>
         {/* Skip to main content — keyboard/screen reader accessibility */}
-        <a href="#about" className="skip-link">
+        <a href="#main-content" className="skip-link">
           Skip to main content
         </a>
         {children}

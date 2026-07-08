@@ -91,7 +91,7 @@ export function Hero() {
             variants={item}
             className="flex flex-wrap items-center justify-center gap-3 mt-2"
           >
-            <Button href="#projects" variant="primary" size="lg">
+            <Button href="/projects" variant="primary" size="lg">
               View Projects
             </Button>
             <Button

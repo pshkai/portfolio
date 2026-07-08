@@ -39,7 +39,7 @@ export const personalProjects: Project[] = [
     ],
     links: {
       demo: "#",
-      github: "#",
+      github: "https://github.com/pshkai/sports-court-booking-system",
     },
     featured: true,
   },

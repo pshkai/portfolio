@@ -3,8 +3,7 @@ import { Footer } from "@/components/Footer";
 import { Hero } from "@/components/sections/Hero";
 import { About } from "@/components/sections/About";
 import { Skills } from "@/components/sections/Skills";
-import { PersonalProjects } from "@/components/sections/PersonalProjects";
-import { ProfessionalExperience } from "@/components/sections/ProfessionalExperience";
+import { WorkGateway } from "@/components/sections/WorkGateway";
 import { WorkStyle } from "@/components/sections/WorkStyle";
 import { Contact } from "@/components/sections/Contact";
 
@@ -16,8 +15,7 @@ export default function Home() {
         <Hero />
         <About />
         <Skills />
-        <PersonalProjects />
-        <ProfessionalExperience />
+        <WorkGateway />
         <WorkStyle />
         <Contact />
       </main>

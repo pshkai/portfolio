@@ -82,7 +82,7 @@ export function ProfessionalExperience() {
     <section id="experience" className="py-24 bg-stone-50 dark:bg-stone-900">
       <div className="section-container">
         <SectionHeading
-          label="Professional Experience"
+          label="Selected Backend Experience"
           title="Real products. Real codebases."
           subtitle="Backend contributions to commercial platforms — working within existing systems, shipping features, and improving maintainability."
         />
