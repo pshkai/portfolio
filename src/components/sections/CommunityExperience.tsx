@@ -42,7 +42,7 @@ export function CommunityExperience() {
                     alt={item.image.alt}
                     fill
                     sizes="(min-width: 1024px) 520px, 100vw"
-                    className="object-cover"
+                    className="object-contain"
                   />
                 </div>
               )}

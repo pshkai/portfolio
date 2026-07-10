@@ -36,7 +36,7 @@ export const communityExperience: CommunityExperience[] = [
     ],
     badges: [".NET", "Developer Community", "Event Volunteering", "Software Architecture"],
     image: {
-      src: "/community/dotnet-developer-day.jpg",
+      src: "/portfolio/community/dotnet-developer-day.jpg",
       alt: "Volunteer team and attendees at .NET Developer Day Thailand.",
     },
     links: [
@@ -60,7 +60,7 @@ export const communityExperience: CommunityExperience[] = [
     ],
     badges: ["Startup", "Pitching", "Food Waste", "Sustainability", "Product Strategy"],
     image: {
-      src: "/community/expiresense-pitch.jpg",
+      src: "/portfolio/community/expiresense-pitch.jpg",
       alt: "ExpireSense pitch event recognition photo.",
     },
     links: [
@@ -101,7 +101,7 @@ export const communityExperience: CommunityExperience[] = [
     ],
     badges: ["Leadership", "Event Planning", "Stakeholder Management", "Student Council"],
     image: {
-      src: "/community/student-council-sports-day.jpg",
+      src: "/portfolio/community/student-council-sports-day.jpg",
       alt: "Global Academy sports day event photo.",
     },
     links: [
@@ -125,7 +125,7 @@ export const communityExperience: CommunityExperience[] = [
     ],
     badges: ["Hospitality", "F&B Operations", "Product Discovery", "ExpireSense"],
     image: {
-      src: "/community/hospitality-bootcamp.jpg",
+      src: "/portfolio/community/hospitality-bootcamp.jpg",
       alt: "Pullman Pattaya Hotel G hospitality bootcamp photo.",
     },
     links: [
