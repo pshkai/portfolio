@@ -4,11 +4,12 @@ import { Footer } from "@/components/Footer";
 import { PageHeader } from "@/components/ui/PageHeader";
 import { ProfessionalExperience } from "@/components/sections/ProfessionalExperience";
 import { AdditionalExperience } from "@/components/sections/AdditionalExperience";
+import { CommunityExperience } from "@/components/sections/CommunityExperience";
 
 export const metadata: Metadata = {
   title: "Experience - Kai",
   description:
-    "Kai's backend software engineering experience, with broader work across generative AI workflows, technical education, MarTech operations, and coaching.",
+    "Kai's backend software engineering experience, with broader work across generative AI workflows, technical education, MarTech operations, community initiatives, and startup leadership.",
 };
 
 export default function ExperiencePage() {
@@ -23,6 +24,7 @@ export default function ExperiencePage() {
         />
         <ProfessionalExperience />
         <AdditionalExperience />
+        <CommunityExperience />
       </main>
       <Footer />
     </>
