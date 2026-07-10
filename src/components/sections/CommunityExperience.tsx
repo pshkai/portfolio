@@ -1,8 +1,10 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { communityExperience } from "@/data/communityExperience";
 import { Badge } from "@/components/ui/Badge";
+import { Button } from "@/components/ui/Button";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 
 export function CommunityExperience() {
@@ -33,6 +35,18 @@ export function CommunityExperience() {
               }}
               className="glass-card flex h-full flex-col gap-4 p-5 sm:p-6 lg:col-span-3"
             >
+              {item.image && (
+                <div className="relative aspect-[16/9] overflow-hidden rounded-xl border border-stone-100 bg-stone-100 dark:border-stone-800 dark:bg-stone-800">
+                  <Image
+                    src={item.image.src}
+                    alt={item.image.alt}
+                    fill
+                    sizes="(min-width: 1024px) 520px, 100vw"
+                    className="object-cover"
+                  />
+                </div>
+              )}
+
               <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
                 <div>
                   <p className="text-[11px] font-medium uppercase tracking-widest text-stone-400 dark:text-stone-500">
@@ -77,6 +91,22 @@ export function CommunityExperience() {
                   </Badge>
                 ))}
               </div>
+
+              {item.links && item.links.length > 0 && (
+                <div className="flex flex-wrap gap-2">
+                  {item.links.map((link) => (
+                    <Button
+                      key={link.href}
+                      href={link.href}
+                      variant="outline"
+                      size="sm"
+                      external
+                    >
+                      {link.label}
+                    </Button>
+                  ))}
+                </div>
+              )}
             </motion.article>
           ))}
         </div>

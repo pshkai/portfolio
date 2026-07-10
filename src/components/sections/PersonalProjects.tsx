@@ -74,7 +74,7 @@ function ProjectCard({
       <div className="flex flex-wrap gap-2 pt-1 border-t border-stone-100 dark:border-stone-800">
         {project.links.demo && (
           <Button href={project.links.demo} variant="primary" size="sm" external>
-            View Project
+            {project.linkLabels?.demo ?? "View Project"}
           </Button>
         )}
         {project.links.github && (
@@ -84,7 +84,7 @@ function ProjectCard({
             size="sm"
             external
           >
-            GitHub
+            {project.linkLabels?.github ?? "GitHub"}
           </Button>
         )}
         {project.links.details && (
@@ -94,7 +94,7 @@ function ProjectCard({
             size="sm"
             external
           >
-            Details
+            {project.linkLabels?.details ?? "Details"}
           </Button>
         )}
       </div>

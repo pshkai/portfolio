@@ -11,6 +11,14 @@ export type CommunityExperience = {
   summary: string;
   bullets: string[];
   badges: string[];
+  image?: {
+    src: string;
+    alt: string;
+  };
+  links?: {
+    label: string;
+    href: string;
+  }[];
 };
 
 export const communityExperience: CommunityExperience[] = [
@@ -27,6 +35,16 @@ export const communityExperience: CommunityExperience[] = [
       "Built community connections while learning from senior engineers, speakers, and other volunteers.",
     ],
     badges: [".NET", "Developer Community", "Event Volunteering", "Software Architecture"],
+    image: {
+      src: "/community/dotnet-developer-day.jpg",
+      alt: "Volunteer team and attendees at .NET Developer Day Thailand.",
+    },
+    links: [
+      {
+        label: "LinkedIn Post",
+        href: "https://www.linkedin.com/feed/update/urn:li:activity:7441131672345112576/",
+      },
+    ],
   },
   {
     title: "Founder & CEO",
@@ -41,6 +59,20 @@ export const communityExperience: CommunityExperience[] = [
       "Connected user research, hospitality/F&B observations, and product strategy into a clearer sustainability-focused roadmap.",
     ],
     badges: ["Startup", "Pitching", "Food Waste", "Sustainability", "Product Strategy"],
+    image: {
+      src: "/community/expiresense-pitch.jpg",
+      alt: "ExpireSense pitch event recognition photo.",
+    },
+    links: [
+      {
+        label: "Award Post",
+        href: "https://www.linkedin.com/feed/update/urn:li:activity:7430472787833827328/",
+      },
+      {
+        label: "Pizza Pitch",
+        href: "https://www.linkedin.com/feed/update/urn:li:activity:7396846037908369409/",
+      },
+    ],
   },
   {
     title: "ACIYLS / Sustainability Startathon",
@@ -68,6 +100,16 @@ export const communityExperience: CommunityExperience[] = [
       "Supported GA Sports Day planning and execution across approvals, scheduling, volunteer coordination, and prize-giving.",
     ],
     badges: ["Leadership", "Event Planning", "Stakeholder Management", "Student Council"],
+    image: {
+      src: "/community/student-council-sports-day.jpg",
+      alt: "Global Academy sports day event photo.",
+    },
+    links: [
+      {
+        label: "Sports Day Post",
+        href: "https://www.linkedin.com/feed/update/urn:li:activity:7379466450366943232/",
+      },
+    ],
   },
   {
     title: "Hospitality Internship Bootcamp",
@@ -82,5 +124,19 @@ export const communityExperience: CommunityExperience[] = [
       "Used the experience to sharpen ExpireSense's product context beyond a classroom or pitch-stage understanding.",
     ],
     badges: ["Hospitality", "F&B Operations", "Product Discovery", "ExpireSense"],
+    image: {
+      src: "/community/hospitality-bootcamp.jpg",
+      alt: "Pullman Pattaya Hotel G hospitality bootcamp photo.",
+    },
+    links: [
+      {
+        label: "LinkedIn Post",
+        href: "https://www.linkedin.com/feed/update/urn:li:activity:7417588436058116096/",
+      },
+      {
+        label: "Academy Post",
+        href: "https://www.linkedin.com/feed/update/urn:li:activity:7421533820379705344/",
+      },
+    ],
   },
 ];

@@ -8,6 +8,11 @@ export type Project = {
     github?: string;
     details?: string;
   };
+  linkLabels?: {
+    demo?: string;
+    github?: string;
+    details?: string;
+  };
   featured?: boolean;
 };
 
@@ -22,9 +27,8 @@ export const personalProjects: Project[] = [
       "Focused on product thinking — prioritising clarity of information and intuitive user flows throughout.",
     ],
     links: {
-      demo: "#",
-      github: "#",
-      details: "#",
+      demo: "https://findyourcrib.vercel.app",
+      github: "https://github.com/pshkai/findyourcrib",
     },
     featured: true,
   },
@@ -53,8 +57,12 @@ export const personalProjects: Project[] = [
       "Developed expiry reminders, inventory management, and recipe recommendation features — prepared for production release.",
     ],
     links: {
-      demo: "#",
-      github: "#",
+      demo: "https://www.linkedin.com/company/expiresense/",
+      github: "https://www.expiresense.com/",
+    },
+    linkLabels: {
+      demo: "LinkedIn",
+      github: "Website",
     },
     featured: true,
   },
