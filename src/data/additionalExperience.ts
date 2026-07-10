@@ -13,7 +13,7 @@ export const additionalExperience: AdditionalExperience[] = [
     organization: "MarketingBear",
     role: "Intern",
     category: "AI & Creative Technology",
-    date: "Jun 2026 - Present",
+    date: "May 2026 - Present",
     summary:
       "AI-assisted creative production for short-form advertising and SEO-focused product campaigns.",
     bullets: [
