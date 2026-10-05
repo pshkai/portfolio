@@ -39,9 +39,9 @@ function ProjectCard({
             {project.tagline}
           </p>
         </div>
-        {project.featured && (
+        {(project.status || project.featured) && (
           <span className="shrink-0 mt-0.5 inline-flex items-center px-2.5 py-0.5 rounded-full text-[10px] font-medium tracking-wide bg-amber-50 text-amber-700 border border-amber-200 dark:bg-amber-950/40 dark:text-amber-200 dark:border-amber-900">
-            Featured
+            {project.status ?? "Featured"}
           </span>
         )}
       </div>

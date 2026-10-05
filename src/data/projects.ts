@@ -14,6 +14,7 @@ export type Project = {
     details?: string;
   };
   featured?: boolean;
+  status?: "Ongoing";
 };
 
 export const personalProjects: Project[] = [
@@ -66,6 +67,19 @@ export const personalProjects: Project[] = [
     featured: true,
   },
   {
+    name: "ZeroPrompt",
+    tagline: "An ongoing undergraduate Artificial Intelligence course project.",
+    stack: ["HTML", "CSS", "Vanilla JavaScript"],
+    bullets: [
+      "Helps users select and compare LLMs by task, quality priorities, budget and provider preferences, with transparent explanations and animated routing.",
+      "Routing and responses are simulated; live AI API integration is a future step.",
+    ],
+    links: {
+      github: "https://github.com/pshkai/zeroprompt",
+    },
+    status: "Ongoing",
+  },
+  {
     name: "Never Give Up Site Blocker",
     tagline: "A lightweight browser extension for automatic adult content filtering.",
     stack: ["JavaScript", "Chrome Manifest V3", "declarativeNetRequest", "webNavigation"],
@@ -74,7 +88,11 @@ export const personalProjects: Project[] = [
       "Blocks navigation with declarativeNetRequest rules, a fallback list and a webNavigation guard.",
     ],
     links: {
+      demo: "https://chromewebstore.google.com/detail/never-give-up-site-blocke/ilccpifopdbkijdpnckhnpioidbdhoch?pli=1",
       github: "https://github.com/pshkai/adult-site-blocking-extension",
+    },
+    linkLabels: {
+      demo: "Chrome Web Store",
     },
   },
   {
