@@ -6,6 +6,8 @@ export type ProfessionalProject = {
   tagline: string;
   stack: string[];
   bullets: string[];
+  image?: string;
+  imageAlt?: string;
 };
 
 export const professionalProjects: ProfessionalProject[] = [
@@ -35,6 +37,8 @@ export const professionalProjects: ProfessionalProject[] = [
   },
   {
     company: "Website Rebuild / AitsCCTV",
+    image: "/portfolio/projects/aits-website-preview.png",
+    imageAlt: "Article cards in the AitsCCTV website rebuild",
     role: "Full Stack Development",
     type: "Web Platform",
     tagline: "A responsive Next.js rebuild preserving service content and familiar navigation.",

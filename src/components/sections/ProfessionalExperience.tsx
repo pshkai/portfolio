@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Badge } from "@/components/ui/Badge";
 import { professionalProjects } from "@/data/professionalExperience";
@@ -66,6 +67,11 @@ function ExperienceCard({
         ))}
       </ul>
 
+      {project.image && (
+        <Image src={project.image} alt={project.imageAlt ?? project.company} width={1536} height={900}
+          className="rounded-lg border border-stone-200 dark:border-stone-700" />
+      )}
+
       {/* Tech stack */}
       <div className="flex flex-wrap gap-1.5 pt-7 border-t border-stone-100 dark:border-stone-800">
         {project.stack.map((tech) => (
@@ -80,7 +86,7 @@ function ExperienceCard({
 
 export function ProfessionalExperience() {
   return (
-    <section id="experience" className="py-24 bg-stone-50 dark:bg-stone-900">
+    <section id="work-projects" className="py-24 bg-stone-50 dark:bg-stone-900">
       <div className="section-container">
         <SectionHeading
           label="Selected Work Projects"

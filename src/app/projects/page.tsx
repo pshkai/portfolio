@@ -3,7 +3,7 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { PageHeader } from "@/components/ui/PageHeader";
 import { PersonalProjects } from "@/components/sections/PersonalProjects";
-import { AitsCaseStudies } from "@/components/sections/AitsCaseStudies";
+import { ProfessionalExperience } from "@/components/sections/ProfessionalExperience";
 
 export const metadata: Metadata = {
   title: "Projects - Kai",
@@ -21,8 +21,8 @@ export default function ProjectsPage() {
           title="Projects and case studies."
           subtitle="Full-stack products, AI workflows and prototypes, with the implementation and current status of each project."
         />
-        <AitsCaseStudies />
         <PersonalProjects />
+        <ProfessionalExperience />
       </main>
       <Footer />
     </>

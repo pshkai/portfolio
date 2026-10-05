@@ -19,7 +19,7 @@ const navLinks: NavigationLink[] = [
   { label: "Skills", href: "/#skills" },
   { label: "Projects", href: "/projects", children: [
     { label: "Personal Projects", href: "/projects/#projects" },
-    { label: "Work Projects", href: "/experience/#experience" },
+    { label: "Work Projects", href: "/projects/#work-projects" },
   ] },
   { label: "Experience", href: "/experience", children: [
     { label: "Professional Experience", href: "/experience/#broader-experience" },
@@ -37,7 +37,7 @@ function NavigationItem({ link, active, mobile = false, onNavigate }: {
 }) {
   const [open, setOpen] = useState(false);
   const root = useRef<HTMLDivElement>(null);
-  const toggle = useRef<HTMLButtonElement>(null);
+  const parentLink = useRef<HTMLAnchorElement>(null);
   const submenuId = useId();
 
   useEffect(() => {
@@ -47,8 +47,8 @@ function NavigationItem({ link, active, mobile = false, onNavigate }: {
     };
     const dismissEscape = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
+        parentLink.current?.focus();
         setOpen(false);
-        toggle.current?.focus();
       }
     };
     document.addEventListener("pointerdown", dismissOutside);
@@ -65,34 +65,36 @@ function NavigationItem({ link, active, mobile = false, onNavigate }: {
   };
 
   return (
-    <div ref={root} className="relative" onBlur={(event) => {
-      if (!event.currentTarget.contains(event.relatedTarget as Node)) setOpen(false);
-    }}>
+    <div ref={root} className="relative"
+      onMouseEnter={() => { if (!mobile && link.children) setOpen(true); }}
+      onMouseLeave={() => { if (!mobile) setOpen(false); }}
+      onBlur={(event) => {
+        if (!event.currentTarget.contains(event.relatedTarget as Node)) setOpen(false);
+      }}>
       <div className={cn("flex items-center rounded-lg", active && "bg-stone-100 dark:bg-stone-800")}>
-        <Link href={link.href} onClick={navigate} className={cn(
+        <Link ref={parentLink} href={link.href} onClick={navigate}
+          onFocus={() => { if (!mobile && link.children) setOpen(true); }}
+          aria-expanded={link.children ? mobile || open : undefined}
+          aria-controls={link.children ? submenuId : undefined}
+          className={cn(
           "text-sm font-medium text-stone-600 hover:text-stone-900 hover:bg-stone-100 rounded-lg transition-colors dark:text-stone-300 dark:hover:text-stone-50 dark:hover:bg-stone-800",
           mobile ? "flex-1 px-4 py-3" : "px-3 py-2",
           active && "text-stone-900 dark:text-stone-50"
         )}>{link.label}</Link>
-        {link.children && (
-          <button ref={toggle} type="button" aria-label={`Toggle ${link.label} submenu`} title={`${link.label} sections`} aria-expanded={open} aria-controls={submenuId}
-            onClick={() => setOpen(value => !value)}
-            className={cn("flex shrink-0 items-center justify-center rounded-lg text-stone-500 hover:bg-stone-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-stone-500 dark:text-stone-300 dark:hover:bg-stone-800", mobile ? "h-11 w-11" : "h-9 w-7")}>
-            <span aria-hidden className={cn("h-1.5 w-1.5 border-b border-r border-current transition-transform", open ? "rotate-[225deg]" : "rotate-45")} />
-          </button>
-        )}
       </div>
-      {link.children && open && (
-        <div id={submenuId} className={cn(
-          "flex flex-col gap-1 rounded-lg border border-stone-200 bg-white p-2 dark:border-stone-700 dark:bg-stone-950",
-          mobile ? "ml-4 mt-1" : "absolute left-0 top-full mt-2 w-64 shadow-lg"
-        )}>
-          {link.children.map(child => (
-            <Link key={child.href} href={child.href} onClick={navigate}
-              className="rounded-md px-3 py-2.5 text-sm text-stone-600 hover:bg-stone-100 hover:text-stone-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-stone-500 dark:text-stone-300 dark:hover:bg-stone-800 dark:hover:text-stone-50">
-              {child.label}
-            </Link>
-          ))}
+      {link.children && (mobile || open) && (
+        <div className={mobile ? "ml-4 mt-1" : "absolute left-0 top-full w-64 pt-2"}>
+          <div id={submenuId} className={cn(
+            "flex flex-col gap-1 rounded-lg border border-stone-200 bg-white p-2 dark:border-stone-700 dark:bg-stone-950",
+            !mobile && "shadow-lg"
+          )}>
+            {link.children.map(child => (
+              <Link key={child.href} href={child.href} onClick={navigate}
+                className="rounded-md px-3 py-2.5 text-sm text-stone-600 hover:bg-stone-100 hover:text-stone-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-stone-500 dark:text-stone-300 dark:hover:bg-stone-800 dark:hover:text-stone-50">
+                {child.label}
+              </Link>
+            ))}
+          </div>
         </div>
       )}
     </div>
@@ -104,7 +106,7 @@ export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
 
-  const isActive = (href: string) => href !== "/" && pathname === href;
+  const isActive = (href: string) => href !== "/" && pathname.replace(/\/$/, "") === href;
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 24);
