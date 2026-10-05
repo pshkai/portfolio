@@ -28,19 +28,9 @@ export function Hero() {
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-mesh-gradient dark:bg-none dark:bg-stone-950"
+      className="relative min-h-[80svh] flex flex-col items-center justify-center overflow-hidden bg-stone-50 dark:bg-stone-950"
     >
-      {/* Subtle background orbs */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 overflow-hidden"
-      >
-        <div className="absolute -top-32 -left-32 w-[600px] h-[600px] rounded-full bg-stone-200/40 blur-3xl dark:bg-stone-800/30" />
-        <div className="absolute -bottom-48 -right-24 w-[500px] h-[500px] rounded-full bg-blue-50/50 blur-3xl dark:bg-sky-950/20" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] rounded-full bg-amber-50/30 blur-3xl dark:bg-amber-950/10" />
-      </div>
-
-      <div className="section-container relative z-10 flex flex-col items-center text-center pt-28 pb-20">
+      <div className="section-container relative z-10 flex flex-col items-center text-center pt-24 pb-12">
         <motion.div
           variants={container}
           initial="hidden"
@@ -51,7 +41,7 @@ export function Hero() {
           <motion.div variants={item}>
             <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-medium tracking-wide bg-white/80 border border-stone-200 text-stone-600 shadow-sm backdrop-blur-sm dark:bg-stone-900/80 dark:border-stone-700 dark:text-stone-300">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-              Open to Internships &amp; Junior Roles
+              Currently at AitsCCTV
             </span>
           </motion.div>
 
@@ -60,7 +50,7 @@ export function Hero() {
             variants={item}
             className="text-sm font-medium text-stone-400 tracking-widest uppercase font-sans dark:text-stone-500"
           >
-            Pyae Sone Htoo — Kai
+            Software Engineer | Full Stack, AI &amp; Automation
           </motion.p>
 
           {/* Headline */}
@@ -68,12 +58,7 @@ export function Hero() {
             variants={item}
             className="font-serif text-4xl sm:text-5xl md:text-6xl text-stone-900 leading-[1.12] tracking-tight dark:text-stone-50"
           >
-            Backend developer focused on{" "}
-            <span className="italic text-stone-500 dark:text-stone-400">scalable APIs,</span>{" "}
-            clean service architecture,{" "}
-            <span className="italic text-stone-500 dark:text-stone-400">
-              and product&#8209;minded engineering.
-            </span>
+            Pyae Sone Htoo <span className="italic text-stone-500 dark:text-stone-400">(Kai)</span>
           </motion.h1>
 
           {/* Supporting copy */}
@@ -81,9 +66,9 @@ export function Hero() {
             variants={item}
             className="text-base sm:text-lg text-stone-500 leading-relaxed font-light max-w-2xl dark:text-stone-400"
           >
-            I build practical backend systems — REST APIs, authentication flows,
-            payment and order logic, and product-focused applications that work
-            cleanly end to end.
+            I build full-stack applications and AI automation that connect
+            customer service, marketing and internal operations with reliable
+            APIs and human review.
           </motion.p>
 
           {/* CTA buttons */}
@@ -107,20 +92,6 @@ export function Hero() {
             </Button>
           </motion.div>
 
-          {/* Soft divider / scroll cue */}
-          <motion.div
-            variants={item}
-            className="mt-12 flex flex-col items-center gap-2 text-stone-400 dark:text-stone-500"
-          >
-            <span className="text-xs tracking-widest uppercase font-medium">
-              Scroll
-            </span>
-            <motion.div
-              animate={{ y: [0, 6, 0] }}
-              transition={{ duration: 1.6, repeat: Infinity, ease: "easeInOut" }}
-              className="w-px h-8 bg-gradient-to-b from-stone-300 to-transparent rounded-full dark:from-stone-700"
-            />
-          </motion.div>
         </motion.div>
       </div>
     </section>

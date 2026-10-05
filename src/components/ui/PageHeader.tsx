@@ -10,12 +10,7 @@ interface PageHeaderProps {
 
 export function PageHeader({ label, title, subtitle }: PageHeaderProps) {
   return (
-    <section className="relative overflow-hidden bg-mesh-gradient pt-36 pb-16 dark:bg-none dark:bg-stone-950">
-      <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">
-        <div className="absolute -top-40 -left-32 h-[420px] w-[420px] rounded-full bg-stone-200/40 blur-3xl dark:bg-stone-800/30" />
-        <div className="absolute -bottom-44 right-0 h-[360px] w-[360px] rounded-full bg-amber-50/40 blur-3xl dark:bg-amber-950/10" />
-      </div>
-
+    <section className="relative overflow-hidden bg-stone-50 pt-36 pb-16 dark:bg-stone-950">
       <motion.div
         initial={{ opacity: 0, y: 24 }}
         animate={{ opacity: 1, y: 0 }}

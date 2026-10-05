@@ -12,7 +12,7 @@ export function Skills() {
         <SectionHeading
           label="Tech Stack"
           title="Tools I build with."
-          subtitle="A focused set of backend technologies, frameworks, and practices I've applied in real projects."
+          subtitle="Technologies and practices I use across applications, APIs and AI automation."
           align="left"
         />
 
@@ -36,9 +36,9 @@ export function Skills() {
             >
               {/* Category header */}
               <div className="flex items-center gap-3 mb-4">
-                <span className="text-xl" aria-hidden>
+                {cat.icon && <span className="text-xl" aria-hidden>
                   {cat.icon}
-                </span>
+                </span>}
                 <h3 className="font-medium text-stone-900 text-sm tracking-tight dark:text-stone-100">
                   {cat.category}
                 </h3>
@@ -64,8 +64,8 @@ export function Skills() {
           transition={{ duration: 0.5, delay: 0.4 }}
           className="mt-10 text-sm text-stone-400 font-light dark:text-stone-500"
         >
-          Always learning — currently deepening knowledge in system design and
-          scalable backend patterns.
+          Applied across commercial backend work, independent applications and
+          AI automation projects at AitsCCTV.
         </motion.p>
       </div>
     </section>

@@ -5,11 +5,12 @@ import { PageHeader } from "@/components/ui/PageHeader";
 import { ProfessionalExperience } from "@/components/sections/ProfessionalExperience";
 import { AdditionalExperience } from "@/components/sections/AdditionalExperience";
 import { CommunityExperience } from "@/components/sections/CommunityExperience";
+import { Education } from "@/components/sections/Education";
 
 export const metadata: Metadata = {
   title: "Experience - Kai",
   description:
-    "Kai's backend software engineering experience, with broader work across generative AI workflows, technical education, MarTech operations, community initiatives, and startup leadership.",
+    "Kai's full-stack and AI automation work at AitsCCTV, commercial backend development, generative AI production and broader professional experience.",
 };
 
 export default function ExperiencePage() {
@@ -19,11 +20,12 @@ export default function ExperiencePage() {
       <main id="main-content" aria-label="Experience content">
         <PageHeader
           label="Experience"
-          title="Engineering is the focus. The broader journey shaped how I work."
-          subtitle="My core experience is in backend development and product-focused engineering, supported by a broader background in generative AI, technical education, MarTech operations, and coaching."
+          title="Software engineering and AI automation."
+          subtitle="Current work at AitsCCTV, earlier commercial backend projects and a broader background in creative technology, education and operations."
         />
         <ProfessionalExperience />
         <AdditionalExperience />
+        <Education />
         <CommunityExperience />
       </main>
       <Footer />

@@ -41,14 +41,13 @@ function Field({ label, id, type = "text", placeholder, value, onChange, require
 
 const contactLinks = [
   { label: "Email", value: contactInfo.email, href: "mailto:" + contactInfo.email, icon: "✉️" },
-  { label: "Phone", value: contactInfo.phone, href: "tel:" + contactInfo.phone, icon: "📞" },
+  { label: "Phone", value: contactInfo.phone, href: "tel:+66811199612", icon: "📞" },
   { label: "LinkedIn", value: "linkedin.com/in/pshkai", href: contactInfo.linkedin, icon: "💼", external: true },
   { label: "GitHub", value: "github.com/pshkai", href: contactInfo.github, icon: "🐙", external: true },
 ];
 
 export function Contact() {
   const [form, setForm] = useState<FormState>({ name: "", email: "", subject: "", message: "" });
-  const [submitted, setSubmitted] = useState(false);
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
@@ -56,7 +55,8 @@ export function Contact() {
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    setSubmitted(true);
+    const body = `${form.message}\n\nFrom: ${form.name}\nReply to: ${form.email}`;
+    window.location.href = `mailto:${contactInfo.email}?subject=${encodeURIComponent(form.subject)}&body=${encodeURIComponent(body)}`;
   }
 
   return (
@@ -64,8 +64,8 @@ export function Contact() {
       <div className="section-container">
         <SectionHeading
           label="Contact"
-          title="Let us work together."
-          subtitle="Open to internships, junior backend roles, and interesting projects. Feel free to reach out."
+          title="Get in touch."
+          subtitle="Have a question about my work or a project to discuss? Reach me by email or connect on LinkedIn."
         />
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-10">
           <motion.div
@@ -98,7 +98,7 @@ export function Contact() {
             <div className="glass-card p-4 flex items-start gap-3">
               <span className="mt-0.5 w-2 h-2 rounded-full bg-emerald-400 shrink-0 animate-pulse" aria-hidden="true" />
               <div>
-                <p className="text-sm font-medium text-stone-900 dark:text-stone-100">Currently available</p>
+                <p className="text-sm font-medium text-stone-900 dark:text-stone-100">Current work</p>
                 <p className="text-xs text-stone-500 font-light mt-0.5 leading-relaxed dark:text-stone-400">{contactInfo.availability}</p>
               </div>
             </div>
@@ -112,36 +112,17 @@ export function Contact() {
             className="lg:col-span-3"
           >
             <div className="glass-card p-7">
-              {submitted ? (
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.96 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-                  className="flex flex-col items-center justify-center gap-4 py-12 text-center"
-                >
-                  <span className="text-4xl" aria-hidden="true">✅</span>
-                  <h3 className="font-serif text-2xl text-stone-900 dark:text-stone-50">Message received.</h3>
-                  <p className="text-stone-500 text-sm font-light max-w-xs dark:text-stone-400">Thanks for reaching out. I will get back to you as soon as I can.</p>
-                  <button
-                    onClick={() => { setSubmitted(false); setForm({ name: "", email: "", subject: "", message: "" }); }}
-                    className="mt-2 text-xs text-stone-400 hover:text-stone-700 underline underline-offset-4 transition-colors dark:text-stone-500 dark:hover:text-stone-200"
-                  >
-                    Send another message
-                  </button>
-                </motion.div>
-              ) : (
-                <form onSubmit={handleSubmit} className="flex flex-col gap-5" noValidate>
+                <form onSubmit={handleSubmit} className="flex flex-col gap-5">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                     <Field label="Name" id="name" placeholder="Your name" value={form.name} onChange={handleChange} required />
                     <Field label="Email" id="email" type="email" placeholder="your@email.com" value={form.email} onChange={handleChange} required />
                   </div>
                   <Field label="Subject" id="subject" placeholder="What is this about?" value={form.subject} onChange={handleChange} required />
-                  <Field label="Message" id="message" placeholder="Tell me about the role, project, or anything else..." value={form.message} onChange={handleChange} required textarea rows={5} />
+                  <Field label="Message" id="message" placeholder="Tell me about your question or project..." value={form.message} onChange={handleChange} required textarea rows={5} />
                   <div className="flex items-center justify-between gap-4 pt-1">
-                    <Button type="submit" variant="primary" size="md">Send Message</Button>
+                    <Button type="submit" variant="primary" size="md">Open Email Draft</Button>
                   </div>
                 </form>
-              )}
             </div>
           </motion.div>
         </div>

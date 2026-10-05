@@ -7,9 +7,9 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 const cards = [
   {
     label: "Projects",
-    title: "Things I've built independently.",
+    title: "Applications, prototypes and automation.",
     description:
-      "Product-focused applications and technical projects built from idea to implementation.",
+      "Independent products and AitsCCTV case studies, with implementation details and current project status.",
     cta: "View Projects",
     href: "/projects",
   },
@@ -17,7 +17,7 @@ const cards = [
     label: "Experience",
     title: "Engineering and professional experience.",
     description:
-      "Commercial backend contributions alongside experience in generative AI, technical education, MarTech, and coaching.",
+      "Full-stack and AI automation work at AitsCCTV, commercial backend contributions and a broader background in creative technology.",
     cta: "View Experience",
     href: "/experience",
   },
@@ -30,7 +30,7 @@ export function WorkGateway() {
         <SectionHeading
           label="Explore My Work"
           title="A closer look at what I've built and where I've worked."
-          subtitle="Explore independent products, commercial backend work, and the broader experiences that shaped how I approach technology and teams."
+          subtitle="Explore full-stack applications, AI workflows and the experiences that shaped how I approach technology and teams."
         />
 
         <div className="grid grid-cols-1 gap-5 md:grid-cols-2">

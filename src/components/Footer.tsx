@@ -21,7 +21,7 @@ export function Footer() {
               Kai<span className="text-stone-400 dark:text-stone-500">.</span>
             </p>
             <p className="text-xs text-stone-400 mt-0.5 font-light dark:text-stone-500">
-              Backend developer · Open to opportunities
+              Software Engineer | Full Stack, AI &amp; Automation
             </p>
           </div>
           <div className="flex items-center gap-5">

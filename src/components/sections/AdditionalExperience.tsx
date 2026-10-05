@@ -11,7 +11,7 @@ export function AdditionalExperience() {
       <div className="section-container">
         <SectionHeading
           label="Broader Experience"
-          title="Technology, communication, and leadership beyond the backend."
+          title="Creative technology, communication and leadership."
           subtitle="Experience across generative AI, technical education, MarTech operations, and coaching has shaped how I research problems, communicate ideas, respond to feedback, and work with different people."
         />
 

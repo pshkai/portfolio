@@ -9,33 +9,36 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: "Kai — Backend Software Engineer",
+  title: "Kai | Software Engineer | Full Stack, AI & Automation",
   description:
-    "Backend developer focused on scalable APIs, clean service architecture, and product-minded engineering. Available for software engineering internships and junior roles.",
+    "Pyae Sone Htoo (Kai), a software engineer building full-stack applications, APIs and AI automation. Explore work at AitsCCTV, independent projects and technical experience.",
   keywords: [
     "backend developer",
     "software engineer",
     "Node.js",
     "FastAPI",
     "REST APIs",
-    "internship",
-    "junior developer",
+    "full stack developer",
+    "AI automation",
+    "n8n",
+    "React",
+    "Next.js",
     "Pyae Sone Htoo",
     "Kai",
   ],
   authors: [{ name: "Pyae Sone Htoo (Kai)" }],
   openGraph: {
-    title: "Kai — Backend Software Engineer",
+    title: "Kai | Full Stack, AI & Automation",
     description:
-      "Backend developer focused on scalable APIs, clean service architecture, and product-minded engineering.",
+      "Full-stack applications, backend APIs and AI automation by Pyae Sone Htoo (Kai).",
     type: "website",
     locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Kai — Backend Software Engineer",
+    title: "Kai | Full Stack, AI & Automation",
     description:
-      "Backend developer focused on scalable APIs, clean service architecture, and product-minded engineering.",
+      "Full-stack applications, backend APIs and AI automation by Pyae Sone Htoo (Kai).",
   },
   robots: {
     index: true,

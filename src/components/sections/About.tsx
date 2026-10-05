@@ -7,13 +7,13 @@ import { contactInfo } from "@/data/contact";
 const traits = [
   {
     icon: "⚙️",
-    title: "Backend-first thinking",
-    body: "I care about what happens under the hood — clean service layers, well-structured APIs, and data models that scale without becoming a maintenance burden.",
+    title: "Engineering across the stack",
+    body: "I connect usable interfaces with clear APIs, relational data models and maintainable service layers.",
   },
   {
     icon: "📦",
     title: "Product-minded approach",
-    body: "I build with the end user in mind. Backend work only matters if it enables a good product — I think about flows, edge cases, and the full picture.",
+    body: "I turn business needs into workflows, prototypes and acceptance criteria, paying attention to edge cases and human review.",
   },
   {
     icon: "🤝",
@@ -28,7 +28,7 @@ export function About() {
       <div className="section-container">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
           <div>
-            <SectionHeading label="About" title="Building backends that actually hold up." />
+            <SectionHeading label="About" title="From business requirements to working software." />
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -37,16 +37,16 @@ export function About() {
               className="space-y-4 text-stone-600 leading-relaxed font-light text-[15px] dark:text-stone-300"
             >
               <p>
-                Hi, I am Kai — a backend-focused software engineer with hands-on experience building REST APIs, service-layer architectures, and product-driven backend systems across real commercial projects.
+                I am Kai, a software engineer based in Bangkok. At AitsCCTV, I build full-stack software and AI automation for customer enquiries, marketing intelligence and internal planning.
               </p>
               <p>
-                I have worked on commerce platforms, education systems, and consumer apps — handling everything from product and order flows to authentication, pricing logic, and database modelling with PostgreSQL and Sequelize.
+                My work combines TypeScript, Node.js, Python, React and Next.js with n8n, LLM agents and business-platform integrations. Earlier backend work covered commerce and education APIs, order flows and PostgreSQL data models.
               </p>
               <p>
-                Outside of professional work, I build independently — from a property platform and a sports court booking system to a Flutter and FastAPI expiry tracking app. I ship things end to end and care deeply about code that is maintainable, not just functional.
+                Independently, I build FindYourCrib, a property marketplace, and led product strategy and prototype development for ExpireSense. I care about authentication, testing and clear boundaries between a prototype and a production system.
               </p>
               <p>
-                I am currently open to software engineering internships and junior backend engineer roles where I can contribute meaningfully and keep growing.
+                I am pursuing a dual degree in Computer &amp; Data Science and Software Engineering at Global Academy @ Siam University, with graduation expected in November 2028.
               </p>
             </motion.div>
 

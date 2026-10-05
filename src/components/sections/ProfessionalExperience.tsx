@@ -42,6 +42,7 @@ function ExperienceCard({
           <p className="text-sm text-stone-500 font-medium mt-0.5 dark:text-stone-400">
             {project.role}
           </p>
+          {project.date && <p className="mt-1 text-xs text-stone-500 dark:text-stone-400">{project.date}</p>}
         </div>
       </div>
 
@@ -82,9 +83,9 @@ export function ProfessionalExperience() {
     <section id="experience" className="py-24 bg-stone-50 dark:bg-stone-900">
       <div className="section-container">
         <SectionHeading
-          label="Selected Backend Experience"
+          label="Selected Engineering Experience"
           title="Real products. Real codebases."
-          subtitle="Backend contributions to commercial platforms — working within existing systems, shipping features, and improving maintainability."
+          subtitle="Full-stack applications and AI automation at AitsCCTV, alongside backend contributions to commercial platforms."
         />
 
         {/* Timeline-style layout: vertical stack with connector */}

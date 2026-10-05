@@ -10,10 +10,10 @@ export type AdditionalExperience = {
 
 export const additionalExperience: AdditionalExperience[] = [
   {
-    organization: "MarketingBear",
-    role: "Intern",
+    organization: "Marketing Bear",
+    role: "Generative AI Creative Production Intern",
     category: "AI & Creative Technology",
-    date: "May 2026 - Present",
+    date: "Jun 2026 - Sep 2026",
     summary:
       "AI-assisted creative production for short-form advertising and SEO-focused product campaigns.",
     bullets: [

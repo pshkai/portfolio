@@ -3,11 +3,12 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { PageHeader } from "@/components/ui/PageHeader";
 import { PersonalProjects } from "@/components/sections/PersonalProjects";
+import { AitsCaseStudies } from "@/components/sections/AitsCaseStudies";
 
 export const metadata: Metadata = {
   title: "Projects - Kai",
   description:
-    "Product-focused software projects by Kai, including backend APIs, full-stack applications, browser extensions, and technical builds.",
+    "Full-stack projects and AitsCCTV case studies by Kai: LINE automation, marketing intelligence, a Next.js rebuild, floor-plan prototyping and independent applications.",
 };
 
 export default function ProjectsPage() {
@@ -17,9 +18,10 @@ export default function ProjectsPage() {
       <main id="main-content" aria-label="Projects content">
         <PageHeader
           label="Projects"
-          title="Things I've built independently."
-          subtitle="Product-focused applications and technical builds that show how I approach architecture, problem solving, and shipping ideas end to end."
+          title="Projects and case studies."
+          subtitle="Full-stack products, AI workflows and prototypes, with the implementation and current status of each project."
         />
+        <AitsCaseStudies />
         <PersonalProjects />
       </main>
       <Footer />

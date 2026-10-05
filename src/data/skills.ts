@@ -8,26 +8,31 @@ export const skillCategories: SkillCategory[] = [
   {
     category: "Backend & APIs",
     icon: "⚙️",
-    skills: ["Node.js", "Express", "FastAPI", "REST APIs", "Authentication", "Payment & Order Flows"],
+    skills: ["Node.js", "NestJS", "Express.js", "FastAPI", "REST APIs", "JWT", "Role-based access control"],
   },
   {
     category: "Databases & ORM",
     icon: "🗄️",
-    skills: ["PostgreSQL", "Sequelize", "Supabase"],
+    skills: ["PostgreSQL", "MySQL", "Prisma", "Sequelize", "Supabase", "Database migrations"],
   },
   {
     category: "Frontend & Mobile",
     icon: "📱",
-    skills: ["Flutter", "Next.js", "TypeScript", "Tailwind CSS"],
+    skills: ["React", "Next.js", "TypeScript", "JavaScript", "Flutter", "Tailwind CSS"],
   },
   {
-    category: "Tools & Workflow",
+    category: "AI & Automation",
     icon: "🛠️",
-    skills: ["Git", "Postman", "GitHub", "VS Code"],
+    skills: ["n8n", "Python", "OpenAI GPT", "Gemini", "LLM agents", "Prompt engineering", "Structured outputs"],
   },
   {
-    category: "Architecture & Practices",
+    category: "Business Integrations",
     icon: "🏗️",
-    skills: ["Service-Layer Architecture", "Backend Refactoring", "API Design", "Clean Code"],
+    skills: ["LINE Messaging API", "ClickUp API", "SMTP", "Webhooks", "Knowledge retrieval", "Human review"],
+  },
+  {
+    category: "Testing & Delivery",
+    icon: "",
+    skills: ["Jest", "Playwright", "Postman", "Git/GitHub", "GitHub Actions", "CI/CD", "Vercel", "Render"],
   },
 ];

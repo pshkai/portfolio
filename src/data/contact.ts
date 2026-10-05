@@ -6,6 +6,6 @@ export const contactInfo = {
   linkedin: "https://linkedin.com/in/pshkai",
   github: "https://github.com/pshkai",
   resume: "/portfolio/resume.pdf",
-  location: "Available for remote, hybrid, & on-site roles",
-  availability: "Open to internships and junior software engineering roles",
+  location: "Bangkok, Thailand",
+  availability: "Building full-stack software and AI automation at AitsCCTV",
 };

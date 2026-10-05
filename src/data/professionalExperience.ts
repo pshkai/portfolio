@@ -2,12 +2,27 @@ export type ProfessionalProject = {
   company: string;
   role: string;
   type: string;
+  date?: string;
   tagline: string;
   stack: string[];
   bullets: string[];
 };
 
 export const professionalProjects: ProfessionalProject[] = [
+  {
+    company: "AitsCCTV",
+    role: "Full Stack, AI & Automation Engineer",
+    date: "Sep 2026 - Present | Bangkok, Thailand",
+    type: "Software & AI Automation",
+    tagline: "Building customer-service automation, marketing intelligence, a website rebuild and engineering-planning prototypes.",
+    stack: ["n8n", "LINE Messaging API", "GPT", "Gemini", "Next.js", "React", "TypeScript", "FastAPI", "ClickUp"],
+    bullets: [
+      "Developed bilingual LINE inquiry workflows with persistent conversation state, installation intake and human handoffs; implemented webhook verification, duplicate-event checks and quotation tracking for internal testing.",
+      "Built and installed four marketing-intelligence workflows for research, source verification, Thai content drafts, SMTP briefings and ClickUp review; validated 38 offline checks and 8 agent-contract tests ahead of a scheduled pilot.",
+      "Built a Next.js website preview covering 36 captured routes; passed build, type checks and browser regression checks at four viewport widths, and defined a phased website and technical SEO roadmap.",
+      "Prototyped a FastAPI floor-plan tool for PDF/DXF import, AI-assisted analysis and editable CCTV/Wi-Fi placement; lead product ownership through business rules, acceptance criteria and delivery priorities.",
+    ],
+  },
   {
     company: "Juth Studio",
     role: "Backend Developer",

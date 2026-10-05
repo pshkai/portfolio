@@ -20,11 +20,11 @@ export const personalProjects: Project[] = [
   {
     name: "FindYourCrib",
     tagline: "A full-stack property and rental discovery platform.",
-    stack: ["Node.js", "Express", "PostgreSQL", "REST APIs", "Sequelize"],
+    stack: ["TypeScript", "NestJS", "Next.js", "PostgreSQL", "Prisma", "Jest", "Playwright"],
     bullets: [
-      "Built end-to-end property listing flows with search, filtering, and structured backend API design.",
-      "Designed a clean integration between frontend UI and backend services for a smooth rental browsing experience.",
-      "Focused on product thinking — prioritising clarity of information and intuitive user flows throughout.",
+      "Built a property marketplace with a NestJS API and Next.js frontend for renter, agent and administrator workflows.",
+      "Implemented httpOnly JWT authentication, password recovery, listing management, enquiries, favourites and admin moderation, with signed Supabase media uploads.",
+      "Added 64 passing Jest backend tests, Playwright public smoke tests and GitHub Actions CI, with deployment runbooks for Vercel and Render.",
     ],
     links: {
       demo: "https://findyourcrib.vercel.app",
@@ -42,38 +42,36 @@ export const personalProjects: Project[] = [
       "Designed backend logic to handle schedule management cleanly across multiple courts and time slots.",
     ],
     links: {
-      demo: "#",
       github: "https://github.com/pshkai/sports-court-booking-system",
     },
     featured: true,
   },
   {
-    name: "ExpireSense",
-    tagline: "A food expiry tracking app with OCR scanning and smart inventory management.",
+    name: "ExpireSense Prototype",
+    tagline: "A food management prototype for inventory, expiry tracking and OCR-assisted receipt capture.",
     stack: ["Flutter", "FastAPI", "Supabase", "Python", "OCR"],
     bullets: [
-      "Built a Flutter mobile frontend backed by a FastAPI service layer, with Supabase handling auth and storage.",
-      "Integrated OCR-based receipt scanning to automatically extract and log food items and expiry dates.",
-      "Developed expiry reminders, inventory management, and recipe recommendation features — prepared for production release.",
+      "Led product strategy and prototype development for a Flutter-based application covering inventory, expiry tracking, receipt capture and reminders.",
+      "Conducted market research and translated user needs into workflows and system architecture using Flutter, FastAPI, Supabase and Python.",
+      "Coordinated cross-functional development, software testing and prototype delivery.",
     ],
     links: {
-      demo: "https://www.linkedin.com/company/expiresense/",
-      github: "https://www.expiresense.com/",
+      demo: "https://www.expiresense.com/",
+      details: "https://www.linkedin.com/company/expiresense/",
     },
     linkLabels: {
-      demo: "LinkedIn",
-      github: "Website",
+      demo: "Website",
+      details: "LinkedIn",
     },
     featured: true,
   },
   {
-    name: "Adult Site Blocking Extension",
+    name: "Never Give Up Site Blocker",
     tagline: "A lightweight browser extension for automatic adult content filtering.",
-    stack: ["JavaScript", "Browser Extension APIs", "Chrome APIs"],
+    stack: ["JavaScript", "Chrome Manifest V3", "declarativeNetRequest", "webNavigation"],
     bullets: [
-      "Built a browser extension that automatically detects and blocks adult websites using content filtering logic.",
-      "Prioritised lightweight performance — the extension runs efficiently without impacting browsing speed.",
-      "Designed with user protection in mind, delivering a clean and unobtrusive experience.",
+      "Built a Chrome extension that parses a public adult-domain hosts list and stores domains locally.",
+      "Blocks navigation with declarativeNetRequest rules, a fallback list and a webNavigation guard.",
     ],
     links: {
       github: "https://github.com/pshkai/adult-site-blocking-extension",

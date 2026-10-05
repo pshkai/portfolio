@@ -31,7 +31,7 @@ export function Navbar() {
 
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth >= 768) setMobileOpen(false);
+      if (window.innerWidth >= 1024) setMobileOpen(false);
     };
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
@@ -58,7 +58,7 @@ export function Navbar() {
             Kai<span className="text-stone-400 dark:text-stone-500">.</span>
           </Link>
 
-          <nav className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-1 md:flex">
+          <nav className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-1 lg:flex">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
@@ -74,7 +74,7 @@ export function Navbar() {
             ))}
           </nav>
 
-          <div className="hidden md:flex items-center gap-3">
+          <div className="hidden lg:flex items-center gap-3">
             <ThemeToggle />
             <a
               href={contactInfo.resume}
@@ -88,7 +88,9 @@ export function Navbar() {
           <button
             onClick={() => setMobileOpen((v) => !v)}
             aria-label="Toggle menu"
-            className="md:hidden flex flex-col gap-1.5 p-2 rounded-lg hover:bg-stone-100 transition-colors dark:hover:bg-stone-800"
+            aria-expanded={mobileOpen}
+            aria-controls="mobile-navigation"
+            className="lg:hidden flex flex-col gap-1.5 p-2 rounded-lg hover:bg-stone-100 transition-colors dark:hover:bg-stone-800"
           >
             <motion.span
               animate={mobileOpen ? { rotate: 45, y: 7 } : { rotate: 0, y: 0 }}
@@ -116,9 +118,9 @@ export function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.22, ease: "easeOut" }}
-            className="fixed top-[64px] left-4 right-4 z-40 glass-card p-4 md:hidden"
+            className="fixed top-[64px] left-4 right-4 z-40 glass-card p-4 lg:hidden"
           >
-            <nav className="flex flex-col gap-1">
+            <nav id="mobile-navigation" className="flex flex-col gap-1">
               {navLinks.map((link) => (
                 <Link
                   key={link.href}
