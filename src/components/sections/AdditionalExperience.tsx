@@ -10,7 +10,7 @@ export function AdditionalExperience() {
     <section id="broader-experience" className="bg-white py-24 dark:bg-stone-950">
       <div className="section-container">
         <SectionHeading
-          label="Broader Experience"
+          label="Professional Experience"
           title="Creative technology, communication and leadership."
           subtitle="Experience across software engineering, AI, technical education, MarTech operations and coaching has shaped how I research problems, communicate ideas and work with different people."
         />

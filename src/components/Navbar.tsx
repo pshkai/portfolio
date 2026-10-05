@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useId, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -8,13 +8,96 @@ import { cn } from "@/lib/utils";
 import { contactInfo } from "@/data/contact";
 import { ThemeToggle } from "@/components/ThemeToggle";
 
-const navLinks = [
+type NavigationLink = {
+  label: string;
+  href: string;
+  children?: { label: string; href: string }[];
+};
+
+const navLinks: NavigationLink[] = [
   { label: "About", href: "/#about" },
   { label: "Skills", href: "/#skills" },
-  { label: "Projects", href: "/projects" },
-  { label: "Experience", href: "/experience" },
+  { label: "Projects", href: "/projects", children: [
+    { label: "Personal Projects", href: "/projects/#projects" },
+    { label: "Work Projects", href: "/experience/#experience" },
+  ] },
+  { label: "Experience", href: "/experience", children: [
+    { label: "Professional Experience", href: "/experience/#broader-experience" },
+    { label: "Volunteering & Community", href: "/experience/#community-experience" },
+    { label: "Education", href: "/experience/#education" },
+  ] },
   { label: "Contact", href: "/#contact" },
 ];
+
+function NavigationItem({ link, active, mobile = false, onNavigate }: {
+  link: NavigationLink;
+  active: boolean;
+  mobile?: boolean;
+  onNavigate?: () => void;
+}) {
+  const [open, setOpen] = useState(false);
+  const root = useRef<HTMLDivElement>(null);
+  const toggle = useRef<HTMLButtonElement>(null);
+  const submenuId = useId();
+
+  useEffect(() => {
+    if (!open) return;
+    const dismissOutside = (event: PointerEvent) => {
+      if (!root.current?.contains(event.target as Node)) setOpen(false);
+    };
+    const dismissEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setOpen(false);
+        toggle.current?.focus();
+      }
+    };
+    document.addEventListener("pointerdown", dismissOutside);
+    document.addEventListener("keydown", dismissEscape);
+    return () => {
+      document.removeEventListener("pointerdown", dismissOutside);
+      document.removeEventListener("keydown", dismissEscape);
+    };
+  }, [open]);
+
+  const navigate = () => {
+    setOpen(false);
+    onNavigate?.();
+  };
+
+  return (
+    <div ref={root} className="relative" onBlur={(event) => {
+      if (!event.currentTarget.contains(event.relatedTarget as Node)) setOpen(false);
+    }}>
+      <div className={cn("flex items-center rounded-lg", active && "bg-stone-100 dark:bg-stone-800")}>
+        <Link href={link.href} onClick={navigate} className={cn(
+          "text-sm font-medium text-stone-600 hover:text-stone-900 hover:bg-stone-100 rounded-lg transition-colors dark:text-stone-300 dark:hover:text-stone-50 dark:hover:bg-stone-800",
+          mobile ? "flex-1 px-4 py-3" : "px-3 py-2",
+          active && "text-stone-900 dark:text-stone-50"
+        )}>{link.label}</Link>
+        {link.children && (
+          <button ref={toggle} type="button" aria-label={`Toggle ${link.label} submenu`} title={`${link.label} sections`} aria-expanded={open} aria-controls={submenuId}
+            onClick={() => setOpen(value => !value)}
+            className={cn("flex shrink-0 items-center justify-center rounded-lg text-stone-500 hover:bg-stone-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-stone-500 dark:text-stone-300 dark:hover:bg-stone-800", mobile ? "h-11 w-11" : "h-9 w-7")}>
+            <span aria-hidden className={cn("h-1.5 w-1.5 border-b border-r border-current transition-transform", open ? "rotate-[225deg]" : "rotate-45")} />
+          </button>
+        )}
+      </div>
+      {link.children && open && (
+        <div id={submenuId} className={cn(
+          "flex flex-col gap-1 rounded-lg border border-stone-200 bg-white p-2 dark:border-stone-700 dark:bg-stone-950",
+          mobile ? "ml-4 mt-1" : "absolute left-0 top-full mt-2 w-64 shadow-lg"
+        )}>
+          {link.children.map(child => (
+            <Link key={child.href} href={child.href} onClick={navigate}
+              className="rounded-md px-3 py-2.5 text-sm text-stone-600 hover:bg-stone-100 hover:text-stone-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-stone-500 dark:text-stone-300 dark:hover:bg-stone-800 dark:hover:text-stone-50">
+              {child.label}
+            </Link>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
 
 export function Navbar() {
   const pathname = usePathname();
@@ -60,17 +143,7 @@ export function Navbar() {
 
           <nav className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-1 lg:flex">
             {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className={cn(
-                  "px-4 py-2 text-sm text-stone-600 hover:text-stone-900 hover:bg-stone-100 rounded-full transition-all duration-150 font-medium dark:text-stone-300 dark:hover:text-stone-50 dark:hover:bg-stone-800",
-                  isActive(link.href) &&
-                    "bg-stone-100 text-stone-900 dark:bg-stone-800 dark:text-stone-50"
-                )}
-              >
-                {link.label}
-              </Link>
+              <NavigationItem key={link.href} link={link} active={isActive(link.href)} />
             ))}
           </nav>
 
@@ -118,22 +191,11 @@ export function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.22, ease: "easeOut" }}
-            className="fixed top-[64px] left-4 right-4 z-40 glass-card p-4 lg:hidden"
+            className="fixed top-[72px] left-4 right-4 z-40 glass-card max-h-[calc(100dvh-88px)] overflow-y-auto p-4 lg:hidden"
           >
             <nav id="mobile-navigation" className="flex flex-col gap-1">
               {navLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  onClick={() => setMobileOpen(false)}
-                  className={cn(
-                    "px-4 py-3 text-sm font-medium text-stone-700 hover:text-stone-900 hover:bg-stone-100 rounded-xl transition-all duration-150 dark:text-stone-300 dark:hover:text-stone-50 dark:hover:bg-stone-800",
-                    isActive(link.href) &&
-                      "bg-stone-100 text-stone-900 dark:bg-stone-800 dark:text-stone-50"
-                  )}
-                >
-                  {link.label}
-                </Link>
+                <NavigationItem key={link.href} link={link} active={isActive(link.href)} mobile onNavigate={() => setMobileOpen(false)} />
               ))}
               <div className="border-t border-stone-100 mt-2 pt-3 dark:border-stone-800">
                 <div className="mb-3 flex justify-center">

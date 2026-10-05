@@ -9,10 +9,10 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 
 export function CommunityExperience() {
   return (
-    <section className="bg-stone-50 py-24 dark:bg-stone-900">
+    <section id="community-experience" className="bg-stone-50 py-24 dark:bg-stone-900">
       <div className="section-container">
         <SectionHeading
-          label="Community, Hackathons & Initiatives"
+          label="Volunteering & Community"
           title="Founder work, technical community, and leadership in motion."
           subtitle="Selected experiences from startup stages, developer communities, student leadership, and sustainability-focused challenges."
         />

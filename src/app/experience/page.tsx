@@ -23,10 +23,10 @@ export default function ExperiencePage() {
           title="Software engineering and AI automation."
           subtitle="Current work at AitsCCTV, earlier commercial backend projects and a broader background in creative technology, education and operations."
         />
-        <ProfessionalExperience />
         <AdditionalExperience />
-        <Education />
+        <ProfessionalExperience />
         <CommunityExperience />
+        <Education />
       </main>
       <Footer />
     </>
