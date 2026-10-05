@@ -71,7 +71,7 @@ function ProjectCard({
       </ul>
 
       {/* Links */}
-      <div className="flex flex-wrap gap-2 pt-1 border-t border-stone-100 dark:border-stone-800">
+      <div className="flex flex-wrap gap-2 pt-6 border-t border-stone-100 dark:border-stone-800">
         {project.links.demo && (
           <Button href={project.links.demo} variant="primary" size="sm" external>
             {project.linkLabels?.demo ?? "View Project"}
