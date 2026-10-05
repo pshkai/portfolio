@@ -7,12 +7,12 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 
 export function AdditionalExperience() {
   return (
-    <section className="bg-white py-24 dark:bg-stone-950">
+    <section id="broader-experience" className="bg-white py-24 dark:bg-stone-950">
       <div className="section-container">
         <SectionHeading
           label="Broader Experience"
           title="Creative technology, communication and leadership."
-          subtitle="Experience across generative AI, technical education, MarTech operations, and coaching has shaped how I research problems, communicate ideas, respond to feedback, and work with different people."
+          subtitle="Experience across software engineering, AI, technical education, MarTech operations and coaching has shaped how I research problems, communicate ideas and work with different people."
         />
 
         <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
@@ -66,7 +66,7 @@ export function AdditionalExperience() {
                 ))}
               </ul>
 
-              <div className="mt-auto flex flex-wrap gap-1.5 border-t border-stone-100 pt-3 dark:border-stone-800">
+              <div className="mt-auto flex flex-wrap gap-1.5 border-t border-stone-100 pt-5 sm:pt-6 dark:border-stone-800">
                 {item.badges.map((badge) => (
                   <Badge key={badge} variant="muted">
                     {badge}

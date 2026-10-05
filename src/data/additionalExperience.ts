@@ -1,7 +1,7 @@
 export type AdditionalExperience = {
   organization: string;
   role: string;
-  category: "AI & Creative Technology" | "MarTech & Operations" | "Technical Education" | "Education & Coaching";
+  category: "Software Engineering & Automation" | "AI & Creative Technology" | "MarTech & Operations" | "Technical Education" | "Education & Coaching";
   date?: string;
   summary: string;
   bullets: string[];
@@ -9,6 +9,21 @@ export type AdditionalExperience = {
 };
 
 export const additionalExperience: AdditionalExperience[] = [
+  {
+    organization: "AitsCCTV",
+    role: "Full Stack, AI & Automation Engineer",
+    category: "Software Engineering & Automation",
+    date: "Sept 2026 - Current",
+    summary:
+      "Full-stack engineering and AI automation across customer service, marketing, web platforms and engineering tools.",
+    bullets: [
+      "Develop bilingual customer-service automation with structured installation intake, quotation tracking and human handoffs.",
+      "Build marketing-intelligence workflows connecting AI research, Thai content drafting, email briefings and ClickUp review.",
+      "Develop a Next.js website rebuild and a FastAPI floor-plan planning prototype for CCTV and Wi-Fi layouts.",
+      "Lead product ownership through business rules, acceptance criteria and delivery priorities.",
+    ],
+    badges: ["n8n", "Next.js", "TypeScript", "FastAPI", "AI Automation", "Product Ownership"],
+  },
   {
     organization: "Marketing Bear",
     role: "Generative AI Creative Production Intern",

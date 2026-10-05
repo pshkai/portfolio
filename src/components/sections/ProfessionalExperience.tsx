@@ -67,7 +67,7 @@ function ExperienceCard({
       </ul>
 
       {/* Tech stack */}
-      <div className="flex flex-wrap gap-1.5 pt-1 border-t border-stone-100 dark:border-stone-800">
+      <div className="flex flex-wrap gap-1.5 pt-7 border-t border-stone-100 dark:border-stone-800">
         {project.stack.map((tech) => (
           <Badge key={tech} variant="muted">
             {tech}
@@ -83,9 +83,9 @@ export function ProfessionalExperience() {
     <section id="experience" className="py-24 bg-stone-50 dark:bg-stone-900">
       <div className="section-container">
         <SectionHeading
-          label="Selected Engineering Experience"
+          label="Selected Work Projects"
           title="Real products. Real codebases."
-          subtitle="Full-stack applications and AI automation at AitsCCTV, alongside backend contributions to commercial platforms."
+          subtitle="Software and automation projects developed at AitsCCTV, Juth Studio and Happy Three Creation."
         />
 
         {/* Timeline-style layout: vertical stack with connector */}
@@ -93,7 +93,7 @@ export function ProfessionalExperience() {
           {/* Vertical line — decorative */}
           <div
             aria-hidden
-            className="hidden lg:block absolute left-[18px] top-4 bottom-4 w-px bg-gradient-to-b from-stone-200 via-stone-300 to-transparent dark:from-stone-700 dark:via-stone-600"
+            className="hidden lg:block absolute left-[18px] top-[34px] bottom-7 w-px bg-stone-300 dark:bg-stone-600"
           />
 
           <div className="flex flex-col gap-6 lg:pl-12">
@@ -106,7 +106,7 @@ export function ProfessionalExperience() {
                   viewport={{ once: true }}
                   transition={{ duration: 0.3, delay: i * 0.1 + 0.2 }}
                   aria-hidden
-                  className="hidden lg:block absolute -left-[49px] top-7 w-3 h-3 rounded-full bg-white border-2 border-stone-400 shadow-sm dark:bg-stone-950 dark:border-stone-500"
+                  className="hidden lg:block absolute -left-[35px] top-7 w-3 h-3 rounded-full bg-white border-2 border-stone-400 shadow-sm dark:bg-stone-950 dark:border-stone-500"
                 />
                 <ExperienceCard project={project} index={i} />
               </div>

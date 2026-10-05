@@ -10,17 +10,51 @@ export type ProfessionalProject = {
 
 export const professionalProjects: ProfessionalProject[] = [
   {
-    company: "AitsCCTV",
-    role: "Full Stack, AI & Automation Engineer",
-    date: "Sep 2026 - Present | Bangkok, Thailand",
-    type: "Software & AI Automation",
-    tagline: "Building customer-service automation, marketing intelligence, a website rebuild and engineering-planning prototypes.",
-    stack: ["n8n", "LINE Messaging API", "GPT", "Gemini", "Next.js", "React", "TypeScript", "FastAPI", "ClickUp"],
+    company: "LINE Customer-Service Automation / AitsCCTV",
+    role: "AI & Automation Development",
+    type: "Customer Service",
+    tagline: "Bilingual customer enquiry workflows for installation intake, quotations and team handoffs.",
+    stack: ["n8n", "LINE Messaging API", "GPT", "Gemini"],
     bullets: [
-      "Developed bilingual LINE inquiry workflows with persistent conversation state, installation intake and human handoffs; implemented webhook verification, duplicate-event checks and quotation tracking for internal testing.",
-      "Built and installed four marketing-intelligence workflows for research, source verification, Thai content drafts, SMTP briefings and ClickUp review; validated 38 offline checks and 8 agent-contract tests ahead of a scheduled pilot.",
-      "Built a Next.js website preview covering 36 captured routes; passed build, type checks and browser regression checks at four viewport widths, and defined a phased website and technical SEO roadmap.",
-      "Prototyped a FastAPI floor-plan tool for PDF/DXF import, AI-assisted analysis and editable CCTV/Wi-Fi placement; lead product ownership through business rules, acceptance criteria and delivery priorities.",
+      "Built Thai and English enquiry routing with persistent conversation state and approved-knowledge retrieval.",
+      "Structured installation requirements, quotation tracking and summaries for human handoffs.",
+      "Implemented webhook signature verification and duplicate-event handling.",
+    ],
+  },
+  {
+    company: "Marketing Intelligence & Content Review / AitsCCTV",
+    role: "AI & Automation Development",
+    type: "Marketing Automation",
+    tagline: "Research and content workflows that support evidence-backed Thai marketing drafts and team review.",
+    stack: ["n8n", "AI agents", "SMTP", "ClickUp API"],
+    bullets: [
+      "Built four workflows for research and content, daily email briefings, ClickUp review and operational alerts.",
+      "Connected research, source verification and content agents to produce Thai drafts for human approval.",
+      "Integrated SMTP briefings and ClickUp tasks into the team's review workflow.",
+    ],
+  },
+  {
+    company: "Website Rebuild / AitsCCTV",
+    role: "Full Stack Development",
+    type: "Web Platform",
+    tagline: "A responsive Next.js rebuild preserving service content and familiar navigation.",
+    stack: ["Next.js", "React", "TypeScript", "Tailwind CSS"],
+    bullets: [
+      "Built 36 captured routes with responsive layouts, metadata and an article archive.",
+      "Added Thai and English navigation and click-to-load video embeds.",
+      "Audited the existing WordPress website and defined a phased performance and technical SEO roadmap.",
+    ],
+  },
+  {
+    company: "CCTV & Wi-Fi Floorplan Studio / AitsCCTV",
+    role: "Full Stack & AI Development",
+    type: "Engineering Tool",
+    tagline: "A floor-plan planning prototype with editable device layouts for engineering review.",
+    stack: ["FastAPI", "Python", "PDF/DXF", "Structured AI outputs"],
+    bullets: [
+      "Prototyped PDF rendering, DXF import and schema-constrained AI floor-plan analysis.",
+      "Built editable CCTV and Wi-Fi placement with approximate coverage views and a 3D presentation view.",
+      "Added SVG and print-to-PDF export for sharing proposed layouts.",
     ],
   },
   {
@@ -36,7 +70,7 @@ export const professionalProjects: ProfessionalProject[] = [
     ],
   },
   {
-    company: "Acuppa Academy",
+    company: "Acuppa Academy / Happy Three Creation",
     role: "Backend Developer",
     type: "Education Platform",
     tagline: "Service-layer backend work on a course and education management platform.",
