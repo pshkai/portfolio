@@ -48,15 +48,40 @@ const contactLinks = [
 
 export function Contact() {
   const [form, setForm] = useState<FormState>({ name: "", email: "", subject: "", message: "" });
+  const [draftProvider, setDraftProvider] = useState("gmail");
+  const [copyStatus, setCopyStatus] = useState("");
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) {
+    setCopyStatus("");
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   }
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     const body = `${form.message}\n\nFrom: ${form.name}\nReply to: ${form.email}`;
-    window.location.href = `mailto:${contactInfo.email}?subject=${encodeURIComponent(form.subject)}&body=${encodeURIComponent(body)}`;
+    if (draftProvider === "gmail") {
+      const query = new URLSearchParams({
+        view: "cm",
+        tf: "cm",
+        to: contactInfo.email,
+        su: form.subject,
+        body,
+      });
+      const composeUrl = `https://mail.google.com/mail/?${query}`;
+      const signInQuery = new URLSearchParams({ service: "mail", continue: composeUrl });
+      window.open(`https://accounts.google.com/AccountChooser?${signInQuery}`, "_blank", "noopener,noreferrer");
+    } else {
+      window.location.href = `mailto:${contactInfo.email}?subject=${encodeURIComponent(form.subject)}&body=${encodeURIComponent(body)}`;
+    }
+  }
+
+  async function copyDraft() {
+    try {
+      await navigator.clipboard.writeText(`To: ${contactInfo.email}\nSubject: ${form.subject}\n\n${form.message}\n\nFrom: ${form.name}\nReply to: ${form.email}`);
+      setCopyStatus("Draft copied.");
+    } catch {
+      setCopyStatus("Could not copy the draft. Please try again.");
+    }
   }
 
   return (
@@ -119,9 +144,19 @@ export function Contact() {
                   </div>
                   <Field label="Subject" id="subject" placeholder="What is this about?" value={form.subject} onChange={handleChange} required />
                   <Field label="Message" id="message" placeholder="Tell me about your question or project..." value={form.message} onChange={handleChange} required textarea rows={5} />
-                  <div className="flex items-center justify-between gap-4 pt-1">
+                  <div className="flex flex-col sm:flex-row sm:flex-wrap sm:items-end gap-4 pt-1">
+                    <div className="flex flex-col gap-1.5">
+                      <label htmlFor="draft-provider" className="text-xs font-medium text-stone-600 dark:text-stone-300">Open With</label>
+                      <select id="draft-provider" value={draftProvider} onChange={event => setDraftProvider(event.target.value)}
+                        className="min-h-11 rounded-lg border border-stone-200 bg-white px-3 text-sm text-stone-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-stone-500 dark:border-stone-700 dark:bg-stone-950 dark:text-stone-100">
+                        <option value="gmail">Gmail</option>
+                        <option value="email-app">Default Email App</option>
+                      </select>
+                    </div>
                     <Button type="submit" variant="primary" size="md">Open Email Draft</Button>
+                    <Button type="button" variant="outline" size="md" onClick={copyDraft}>Copy Draft</Button>
                   </div>
+                  {copyStatus && <p role="status" className="text-sm text-stone-600 dark:text-stone-300">{copyStatus}</p>}
                 </form>
             </div>
           </motion.div>
