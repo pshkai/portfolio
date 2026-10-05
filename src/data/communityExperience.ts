@@ -86,6 +86,10 @@ export const communityExperience: CommunityExperience[] = [
       "Strengthened the entrepreneurial and sustainability lens that later fed into ExpireSense.",
     ],
     badges: ["Hackathon", "Startathon", "Sustainability", "Youth Leadership", "Pitching"],
+    image: {
+      src: "/portfolio/community/aciyls-startathon.png",
+      alt: "Kai and teammates at the ACIYLS Sustainability Startathon.",
+    },
   },
   {
     title: "Student Council President",
