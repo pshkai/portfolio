@@ -92,6 +92,30 @@ export const communityExperience: CommunityExperience[] = [
     },
   },
   {
+    title: "Unite for Action: Social Impact Hackathon",
+    organization: "Rotary Club Bangkok DACH / AIT / iCare Thailand Foundation",
+    category: "Hackathons & Leadership",
+    date: "2025",
+    summary:
+      "Team participation in a social impact hackathon connecting entrepreneurship, collaboration, and mentor-guided learning.",
+    bullets: [
+      "Collaborated with teammates and changemakers at the Unite for Action: Social Impact Hackathon 2025.",
+      "Learned from mentors Keshav Raj Pokhrel and Tsvetelina Muller, gaining new perspectives on social impact and innovation.",
+      "Connected with participants and organizers across Rotary Club Bangkok DACH, AIT School of Management, AIT Entrepreneurship Center, and iCare Thailand Foundation.",
+    ],
+    badges: ["Hackathon", "Social Impact", "Entrepreneurship", "Teamwork", "Mentorship"],
+    image: {
+      src: "/portfolio/community/unite-for-action-hackathon.jpg",
+      alt: "Participants at the Unite for Action Social Impact Hackathon 2025.",
+    },
+    links: [
+      {
+        label: "LinkedIn Post",
+        href: "https://www.linkedin.com/posts/pshkai_hackathon-socialimpact-innovation-ugcPost-7367870617938767875-8TJZ/",
+      },
+    ],
+  },
+  {
     title: "Student Council President",
     organization: "Global Academy at Siam University",
     category: "Leadership & Community",
